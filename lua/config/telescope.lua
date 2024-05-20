@@ -9,6 +9,11 @@ return{
              vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
              vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
+             local status, actions = pcall(require, "telescope.actions")
+             if (not status) then
+                 return
+            end
+
              require('telescope').setup{
                  defaults = {
                      preview = true,

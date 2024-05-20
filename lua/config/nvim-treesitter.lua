@@ -1,11 +1,12 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	enabled = true,
 	config = function()
-		          require("nvim-treesitter").setup {
-				  ensure_installed = { "cpp", "lua", "vim", "vimdoc", "python" },
-				  auto_install = true,
-				  highlight = {enable = true},
-			  }
-                      end,
+		          require("nvim-treesitter.configs").setup {
+				      ensure_installed = { "cpp", "lua", "vim", "vimdoc", "python" },
+				      highlight = {
+                          enable = true,
+                          additional_vim_regex_highlighting = false
+                      },
+			      }
+    end,
 }

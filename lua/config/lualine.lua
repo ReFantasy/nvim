@@ -91,7 +91,7 @@ return {
 			    lualine_a = {'mode', get_os_type },
 			    lualine_b = {'branch', 'diff', 'diagnostics'},
 			    lualine_c = {'filename'},
-			    lualine_x = {'encoding' , get_gpu_usage},
+			    lualine_x = {'hostname' },
 			    lualine_y = {'progress'},
 			    lualine_z = {'location'}
 		    },

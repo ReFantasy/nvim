@@ -32,10 +32,10 @@ function get_gpu_usage()
             --return "GPU:" .. tostring(usage)
             return "GPU:" .. string.format("%3.0f", usage)
         else
-            return "Unable to parse GPU usage"
+            return nil --"Unable to parse GPU usage"
         end
     else
-        return "Unable to get GPU usage"
+        return nil--"Unable to get GPU usage"
     end
 end
 

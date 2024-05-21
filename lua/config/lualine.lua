@@ -35,7 +35,7 @@ return {
 		    },
             
 			sections = {
-			    lualine_a = {get_os_type,'mode'},
+			    lualine_a = {'mode',get_os_type},
 			    lualine_b = {'branch', 'diff', 'diagnostics'},
 			    lualine_c = {'filename'},
 			    lualine_x = {'encoding' , 'hostname'},

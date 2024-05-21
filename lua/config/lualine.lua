@@ -99,7 +99,7 @@ return {
 			    lualine_b = {{'branch', icons_enabled=false}, 'diff', 'diagnostics'},
 			    lualine_c = {'filename'},
 			    lualine_x = {
-                    {'hostname', color = {fg='#fcb2af'}},
+                    {'hostname', color = {fg='#fd567c'}},
                 },
 			    lualine_y = {'progress' },
 			    lualine_z = {'location'}

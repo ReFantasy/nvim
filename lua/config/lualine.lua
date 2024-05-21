@@ -1,4 +1,4 @@
-function get_os_type()
+function get_os_icon()
             local separator = package.config:sub(1,1)
     
             if separator == '\\' then
@@ -88,11 +88,13 @@ return {
 		    },
             
 			sections = {
-			    lualine_a = {'mode', get_os_type },
+			    lualine_a = {'mode', get_os_icon},
 			    lualine_b = {'branch', 'diff', 'diagnostics'},
 			    lualine_c = {'filename'},
-			    lualine_x = {'hostname' },
-			    lualine_y = {'progress'},
+			    lualine_x = {
+                    {'hostname', color = {fg='#fcb2af'}},
+                },
+			    lualine_y = {'progress' },
 			    lualine_z = {'location'}
 		    },
            refresh = {

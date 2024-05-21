@@ -20,6 +20,8 @@ function get_os_icon()
             end
 end
 
+
+
 function get_gpu_usage()
     local handle = io.popen("nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits")
     local result = handle:read("*a")
@@ -78,7 +80,12 @@ return {
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
 	    local custom_theme = require'lualine.themes.onedark'
-        
+        --custom_theme.normal.b.bg = '#cc7979'
+
+        function git_icon()
+            return require'nvim-web-devicons'.get_icon('git', '')
+        end
+       
 	    require("lualine").setup{
 		    options = {
 			    theme = custom_theme,
@@ -89,7 +96,7 @@ return {
             
 			sections = {
 			    lualine_a = {'mode', get_os_icon},
-			    lualine_b = {'branch', 'diff', 'diagnostics'},
+			    lualine_b = {{'branch', icons_enabled=false}, 'diff', 'diagnostics'},
 			    lualine_c = {'filename'},
 			    lualine_x = {
                     {'hostname', color = {fg='#fcb2af'}},

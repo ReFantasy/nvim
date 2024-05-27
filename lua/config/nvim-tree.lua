@@ -1,3 +1,4 @@
+
 local function nvtree_on_attach(bufnr)
   local api = require "nvim-tree.api"
 

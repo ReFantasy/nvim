@@ -43,11 +43,11 @@ local function restore_cursor_position(line, col)
     -- 获取当前缓冲区的总行数
     local total_lines = vim.api.nvim_buf_line_count(0)
 
-    if line > total_lines then
-        line = total_lines
+    if line > total_lines-10 then
+        line = total_lines-10
     end
-    if line < 1 then
-        line = 1
+    if line < 10 then
+        line = 10
     end
 
     vim.api.nvim_win_set_cursor(0, {line, col})

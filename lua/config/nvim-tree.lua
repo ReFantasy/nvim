@@ -26,7 +26,7 @@ return {
             vim.g.loaded_netrw = 1
             vim.g.loaded_netrwPlugin = 1
 
-            vim.api.nvim_set_keymap("n", "<A-t>", ":NvimTreeToggle<cr>", {silent = true, noremap = true})
+            vim.api.nvim_set_keymap("n", "<C-t>", ":NvimTreeToggle<cr>", {silent = true, noremap = true})
             
 			require("nvim-tree").setup({
                 on_attach = nvtree_on_attach

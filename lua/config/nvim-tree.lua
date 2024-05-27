@@ -26,7 +26,8 @@ return {
             vim.g.loaded_netrw = 1
             vim.g.loaded_netrwPlugin = 1
 
-            vim.api.nvim_set_keymap("n", "<C-t>", ":NvimTreeToggle<cr>", {silent = true, noremap = true})
+            -- 打开（关闭）文件目录快捷键
+            vim.api.nvim_set_keymap("n", "<F2>", ":NvimTreeToggle<cr>", {silent = true, noremap = true})
             
 			require("nvim-tree").setup({
                 on_attach = nvtree_on_attach

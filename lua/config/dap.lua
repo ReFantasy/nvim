@@ -12,6 +12,13 @@ return {
              vim.api.nvim_set_keymap('n','<F11>', ":lua require'dap'.step_into()<CR>",{})
              vim.api.nvim_set_keymap('n','<S-t>', ":lua require'dap'.terminate()<CR>",{})
 
+             -- 设置输出到终端
+             --dap.defaults.fallback.terminal_win_cmd = 'vsplit'
+             dap.defaults.fallback.external_terminal = {
+               command = '/usr/bin/alacritty';
+               args = {'-e'};
+             }
+
              -- python
              dap.adapters.python = {
                  type = 'executable';

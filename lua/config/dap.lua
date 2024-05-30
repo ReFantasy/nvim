@@ -16,7 +16,7 @@ return {
              
 
              -- python
-             dap.adapters.python = {
+             --[[dap.adapters.python = {
                  type = 'executable';
                  command = 'python';
                  args = { '-m', 'debugpy.adapter' };
@@ -31,7 +31,7 @@ return {
                    return 'python'
                  end;
                },
-              }
+              }]]--
               
 
 		 end,
@@ -41,6 +41,20 @@ return {
         'theHamsta/nvim-dap-virtual-text',
         config = function()
             require('nvim-dap-virtual-text').setup()
+        end,
+    },
+    {
+        "jay-babu/mason-nvim-dap.nvim",
+        dependencies = {"williamboman/mason.nvim",},
+        config = function()
+            require ('mason-nvim-dap').setup({
+                ensure_installed = {},
+                handlers = {
+                    function(config)
+                        require('mason-nvim-dap').default_setup(config)
+                    end,
+                }, -- sets up dap in the predefined manner
+            })
         end,
     },
 }

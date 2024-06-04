@@ -11,7 +11,9 @@ opt.title = true
 opt.swapfile = false
 opt.undofile = true --始终保留历史操作
 opt.wrap = false
+opt.exrc = true
 buffer.fileenconding = "utf-8"
+
 
 -- Tab
 opt.tabstop = 4 -- number of visual spaces per TAB

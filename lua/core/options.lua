@@ -48,3 +48,4 @@ opt.hlsearch = false -- do not highlight matches
 -- 外观
 opt.termguicolors = true        -- enabl 24-bit RGB color in the TUI
 opt.signcolumn = "yes"
+

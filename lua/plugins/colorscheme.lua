@@ -1,11 +1,11 @@
 return {
     {
 	    "tanvirtin/monokai.nvim",
+        enabled = false,
     },
 	{
 		"folke/tokyonight.nvim",
-		enabled = false,
-		lazy = false,
+		enabled = true,
 		config = function()
 			require("tokyonight").setup({
 				style = "night",
@@ -17,7 +17,7 @@ return {
 	},
         {
 		"Mofiqul/vscode.nvim",
-		enabled = true,
+		enabled = false,
 		config = function()
         			-- Lua:
                     -- For dark theme (neovim's default)
@@ -57,7 +57,7 @@ return {
                     -- require('vscode').load()
 
                     -- load the theme without affecting devicon colors.
-                    vim.cmd.colorscheme "vscode"
+                    -- vim.cmd.colorscheme "vscode"
                 end
 	},
 

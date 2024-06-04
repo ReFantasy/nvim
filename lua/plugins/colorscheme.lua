@@ -1,7 +1,7 @@
 return {
     {
 	    "tanvirtin/monokai.nvim",
-        enabled = false,
+        enabled = true,
     },
 	{
 		"folke/tokyonight.nvim",
@@ -60,5 +60,18 @@ return {
                     -- vim.cmd.colorscheme "vscode"
                 end
 	},
+    {
+        "embark-theme/vim",
+        config = true,
+    }
 
 }
+
+
+
+
+
+
+
+
+

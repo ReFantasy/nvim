@@ -6,11 +6,6 @@ return{
              {'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
          },
          config = function()
-             local builtin = require('telescope.builtin')
-             vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-             vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-             vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-             vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
              local status, actions = pcall(require, "telescope.actions")
              if (not status) then
@@ -35,6 +30,22 @@ return{
              -- To get fzf loaded and working with telescope, you need to call
              -- load_extension, somewhere after setup function:
              require('telescope').load_extension('fzf')
+
+             local builtin = require('telescope.builtin')
+             vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+             vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+             vim.keymap.set('n', '<leader><space>', builtin.buffers, {})
+             vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+             vim.keymap.set('n', '<leader>?', builtin.oldfiles, {desc = '[?] Find recently opened files'})
+
+             local search_cur_file = function()
+                 builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown{
+                     winvlend = 10,
+                     previewer = false,
+                 })
+             end
+             vim.keymap.set('n', '<leader>/', search_cur_file, {desc = '[/] Fuzzily search in current buffer'})
+
          end,
     },
     {

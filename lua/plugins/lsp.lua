@@ -1,54 +1,68 @@
---return {
---	{
---	    "williamboman/mason.nvim",
---		config = function()
---			require("mason").setup({
---            })
---		end
---	},
---
---	{
---		"williamboman/mason-lspconfig.nvim",
---		config = function()
---			require("mason-lspconfig").setup{
---				ensure_installed = { "lua_ls" },
---			}
---
---			require("lspconfig").clangd.setup{
---                enabled = true,
---                cmd =
---                {
---                    "clangd",
---                    "--background-index",
---                     "--clang-tidy",
---                     "--all-scopes-completion",
---                     "--completion-style=detailed",
---                     "--j=8",
---                     "--pch-storage=memory",
---                     --"-Wno-unused",
---                },
---            }
---
---			require("lspconfig").pylsp.setup{
---                settings = {
---                    pylsp = {
---                      plugins = {
---                        pycodestyle = {enabled = false},
---                      }
---                    }
---                   }
---            }
---		end
---	},
---
---	{
---		"neovim/nvim-lspconfig",
---	},
---}
+local on_attach = function(_, bufnr)
+    -- Enable completion triggered by <c-x><c-o>
+    local nmap = function(keys, func, desc)
+        if desc then
+            desc = 'LSP: ' .. desc
+        end
+
+        vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+    end
+
+    local func_wl = function()
+        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    end
+
+    -- formate code
+    local fm = function()
+        vim.lsp.buf.format { async = true }
+    end
+
+    nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+    nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
+    nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
+    nmap('gi', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
+    nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+    nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
+    nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
+    nmap('<leader>wl', func_wl, '[W]orkspace [L]ist Folders')
+    nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
+    nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+    nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+    nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+    --nmap('gr', vim.lsp.buf.references, '[G]oto [R]eferences')
+    nmap("<space>f", fm, "[F]ormat code")
+end
+
+local servers = {
+    lua_ls = {
+        Lua = {
+            workspace = { checkThirdParty = false },
+            telemetry = { enable = false },
+        },
+    },
+    pylsp = {
+        settings = {
+            pylsp = {
+                plugins = { pycodestyle = { enabled = false }, },
+            }
+        }
+    },
+    clangd = {
+        cmd =
+        {
+            "clangd",
+            "--background-index",
+            "--clang-tidy",
+            "--all-scopes-completion",
+            "--completion-style=detailed",
+            "--j=8",
+            "--pch-storage=memory",
+            --"-Wno-unused",
+        },
+    },
 
 
-
-
+}
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -56,61 +70,20 @@ return {
         "williamboman/mason-lspconfig.nvim",
     },
     config = function()
-        local servers = {
-            lua_ls = {
-                Lua = {
-                    workspace = { checkThirdParty = false },
-                    telemetry = { enable = false },
-                },
-            },
-            pylsp = {
-                pylsp = {
-                    plugins = {
-                        pycodestyle = {enabled = false},
-                    }
-                }
-            },
-        }
-        local on_attach = function(_, bufnr)
-            -- Enable completion triggered by <c-x><c-o>
-            local nmap = function(keys, func, desc)
-                if desc then
-                    desc = 'LSP: ' .. desc
-                end
-
-                vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
-            end
-
-            nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-            nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
-            nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-            nmap('gi', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
-            nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
-            nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
-            nmap('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
-            nmap('<leader>wl', function()
-                print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-            end, '[W]orkspace [L]ist Folders')
-            nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
-            nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-            nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-            nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-            -- nmap('gr', vim.lsp.buf.references, '[G]oto [R]eferences')
-            nmap("<space>f", function()
-                vim.lsp.buf.format { async = true }
-            end, "[F]ormat code")
-        end
         require("mason").setup()
         require("mason-lspconfig").setup({
             ensure_installed = vim.tbl_keys(servers),
-            handlers = {
-                function(server_name) -- default handler (optional)
-                    require("lspconfig")[server_name].setup {
-                        settings = servers[server_name],
-                        on_attach = on_attach,
-                    }
-                end,
-            }
         })
+
+        for server, cfg in pairs(servers) do
+            require("lspconfig")[server].setup(
+                vim.tbl_deep_extend("keep",
+                    {
+                        on_attach = on_attach,
+                    },
+                    cfg
+                )
+            )
+        end
     end
 }

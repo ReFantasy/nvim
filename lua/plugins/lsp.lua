@@ -34,7 +34,7 @@ local on_attach = function(_, bufnr)
     nmap('<leader>wl', func_wl, '[W]orkspace [L]ist Folders')
     nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
     --nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-    nmap('<leader>rn', '<cmd>Lspsaga rename ++project<CR>', '[R]e[n]ame')
+    nmap('<leader>rn', '<cmd>Lspsaga rename<CR>', '[R]e[n]ame')
     --nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
     nmap('<leader>ca', "<cmd>Lspsaga code_action<CR>", '[C]ode [A]ction')
 

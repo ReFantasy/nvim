@@ -79,12 +79,11 @@ local servers = {
 
 return {
     "neovim/nvim-lspconfig",
-    event = { "BufReadPost", "BufNewFile" },
+    -- event = { "BufReadPost", "BufNewFile" },
     dependencies = {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "hrsh7th/cmp-nvim-lsp",
-
         -- 优化 lsp 界面
         { "folke/neodev.nvim",    config = true },
         { "nvimdev/lspsaga.nvim", config = true },

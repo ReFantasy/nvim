@@ -24,12 +24,12 @@ opt.autoindent = true
 
 -- UI config
 opt.number = true     -- show absolute number
-opt.relativenumber = false
+opt.relativenumber = true
 opt.cursorline = true -- highlight cursor line underneath the cursor horizontally
 opt.showmode = false  -- we are experienced, wo don't need the "-- INSERT --" mode hint
 
 -- 防止包裹
-opt.wrap = false
+opt.wrap = true
 
 -- 启用鼠标
 opt.mouse:append("a")

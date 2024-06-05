@@ -25,7 +25,7 @@ return {
         "ethanholz/nvim-lastplace",
         config = true,
     },
-    {   
+    {
         "folke/which-key.nvim",
         config = true,
     },
@@ -37,4 +37,3 @@ return {
 
     },
 }
-

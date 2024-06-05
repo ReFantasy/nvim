@@ -16,17 +16,17 @@ buffer.fileenconding = "utf-8"
 
 
 -- Tab
-opt.tabstop = 4 -- number of visual spaces per TAB
-opt.softtabstop = 4 -- number of spacesin tab when editing
-opt.shiftwidth = 4 -- insert 4 spaces on a tab
+opt.tabstop = 4      -- number of visual spaces per TAB
+opt.softtabstop = 4  -- number of spacesin tab when editing
+opt.shiftwidth = 4   -- insert 4 spaces on a tab
 opt.expandtab = true -- tabs are spaces, mainly because of python
 opt.autoindent = true
 
 -- UI config
-opt.number = true -- show absolute number
+opt.number = true     -- show absolute number
 opt.relativenumber = false
 opt.cursorline = true -- highlight cursor line underneath the cursor horizontally
-opt.showmode = false -- we are experienced, wo don't need the "-- INSERT --" mode hint
+opt.showmode = false  -- we are experienced, wo don't need the "-- INSERT --" mode hint
 
 -- 防止包裹
 opt.wrap = false
@@ -43,11 +43,10 @@ opt.splitright = true -- open new horizontal splits right
 
 -- 搜索
 opt.ignorecase = true -- ignore case in searches by default
-opt.smartcase = true -- but make it case sensitive if an uppercase is entered
-opt.incsearch = true -- search as characters are entered
-opt.hlsearch = false -- do not highlight matches
+opt.smartcase = true  -- but make it case sensitive if an uppercase is entered
+opt.incsearch = true  -- search as characters are entered
+opt.hlsearch = false  -- do not highlight matches
 
 -- 外观
-opt.termguicolors = true        -- enabl 24-bit RGB color in the TUI
+opt.termguicolors = true -- enabl 24-bit RGB color in the TUI
 opt.signcolumn = "yes"
-

@@ -1,9 +1,10 @@
 local keymap = vim.keymap
 
 -- define common options
-local opts = {    noremap = true,      -- non-recursive
-                  silent = true,       -- do not show message
-              }
+local opts = {
+    noremap = true,               -- non-recursive
+    silent = true,                -- do not show message
+}
 
 
 -- 单行或多行移动
@@ -77,5 +78,5 @@ vim.api.nvim_set_keymap('n', '<C-j>', '', {
                   restore_cursor_position(line+1, col)
                 end
             })
-            ]]--
-
+            ]]
+               --

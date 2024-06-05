@@ -82,6 +82,7 @@ return {
     dependencies = {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
+        "hrsh7th/cmp-nvim-lsp",
 
         -- 优化 lsp 界面
         { "folke/neodev.nvim",    config = true },
@@ -89,6 +90,7 @@ return {
     },
     config = function()
         require("mason").setup()
+        local capabilities = require('cmp_nvim_lsp').default_capabilities()
         require("mason-lspconfig").setup({
             ensure_installed = vim.tbl_keys(servers),
             automatic_installed = {},
@@ -99,6 +101,7 @@ return {
                 vim.tbl_deep_extend("keep",
                     {
                         on_attach = on_attach,
+                        capabilities = capabilities,
                     },
                     cfg
                 )

@@ -1,13 +1,10 @@
-#include "iostream"
+#include <stdio.h>
 
-using std::cout;
-
-int main() {
+int main(int argc, char*argv[]) 
+{
   int a = 10;
   double b = 2.6;
+  printf("ok\n");
 
-  cout << "ok1" << std::endl;
-  std::cout << "ok2" << std::endl;
-  std::cout << a * b << std::endl;
   return 0;
 }

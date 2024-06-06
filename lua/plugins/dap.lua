@@ -1,7 +1,6 @@
 -- lazy load
 local keys = {
     { '<F5>', function()
-        --require('core.utility.cmake_build').build()
         require 'telescope'.extensions.dap.configurations {}
     end },
     { '<F9>',  function() require('dap').toggle_breakpoint() end },
@@ -27,8 +26,8 @@ return {
         config = function()
             -- visual studio sytle
             -- vim.keymap.set('n', '<F5>', function() require('dap').continue() end)
+
             local F5Action = function()
-                --require('core.utility.cmake_build').build()
                 local debug_status = require('dap').status()
                 if string.len(debug_status) == 0
                 then

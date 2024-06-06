@@ -1,39 +1,12 @@
 -- lazy load
 local keys = {
-    { '<F5>',      function() require 'telescope'.extensions.dap.configurations {} end },
-    { '<F9>',      function() require('dap').toggle_breakpoint() end },
-    { '<F10>',     function() require('dap').step_over() end },
-    { '<F11>',     function() require('dap').step_into() end },
+    { '<F5>',  function() require 'telescope'.extensions.dap.configurations {} end },
+    { '<F9>',  function() require('dap').toggle_breakpoint() end },
+    { '<F10>', function() require('dap').step_over() end },
+    { '<F11>', function() require('dap').step_into() end },
 
-    { '<F12>',     '<cmd>DapTerminate<cr><cmd>only!<cr>' },
-    { '<Leader>b', function() require('dap').toggle_breakpoint() end },
-    { '<Leader>B', function() require('dap').set_breakpoint() end },
-    { '<Leader>lp',
-        function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end },
-    { '<Leader>dr', function() require('dap').repl.open() end },
-    { '<Leader>dl', function() require('dap').run_last() end },
-    {
-        '<Leader>dh',
-        function()
-            require('dap.ui.widgets').hover()
-        end,
-        mode = { 'n', 'v' }
-    },
-    {
-        '<Leader>dp',
-        function()
-            require('dap.ui.widgets').preview()
-        end,
-        mode = { 'n', 'v' }
-    },
-    { '<Leader>df', function()
-        local widgets = require('dap.ui.widgets')
-        widgets.centered_float(widgets.frames)
-    end },
-    { '<Leader>ds', function()
-        local widgets = require('dap.ui.widgets')
-        widgets.centered_float(widgets.scopes)
-    end },
+    -- { '<F12>',     '<cmd>DapTerminate<cr><cmd>only!<cr>' },
+    { '<F12>', function() require('dap').terminate() end },
 }
 return {
     {
@@ -51,34 +24,22 @@ return {
         config = function()
             -- visual studio sytle
             -- vim.keymap.set('n', '<F5>', function() require('dap').continue() end)
-            vim.keymap.set('n', '<F5>', function() require 'telescope'.extensions.dap.configurations {} end)
+            local F5Action = function()
+                local debug_status = require('dap').status()
+                if string.len(debug_status) == 0
+                then
+                    require 'telescope'.extensions.dap.configurations()
+                else
+                    --require('dap').continue()
+                    require 'telescope'.extensions.dap.configurations()
+                end
+            end
+            vim.keymap.set('n', '<F5>', F5Action)
             vim.keymap.set('n', '<F9>', function() require('dap').toggle_breakpoint() end)
             vim.keymap.set('n', '<F10>', function() require('dap').step_over() end)
             vim.keymap.set('n', '<F11>', function() require('dap').step_into() end)
+            vim.keymap.set('n', '<F12>', function() require('dap').disconnect() end)
 
-            -- vim.keymap.set('n', '<F12>', function() require('dap').step_out() end)
-            vim.keymap.set('n', '<F12>', '<cmd>DapTerminate<cr><cmd>only!<cr>')
-
-            -- default_setup
-            vim.keymap.set('n', '<Leader>B', function() require('dap').set_breakpoint() end)
-            vim.keymap.set('n', '<Leader>lp',
-                function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
-            vim.keymap.set('n', '<Leader>dr', function() require('dap').repl.open() end)
-            vim.keymap.set('n', '<Leader>dl', function() require('dap').run_last() end)
-            vim.keymap.set({ 'n', 'v' }, '<Leader>dh', function()
-                require('dap.ui.widgets').hover()
-            end)
-            vim.keymap.set({ 'n', 'v' }, '<Leader>dp', function()
-                require('dap.ui.widgets').preview()
-            end)
-            vim.keymap.set('n', '<Leader>df', function()
-                local widgets = require('dap.ui.widgets')
-                widgets.centered_float(widgets.frames)
-            end)
-            vim.keymap.set('n', '<Leader>ds', function()
-                local widgets = require('dap.ui.widgets')
-                widgets.centered_float(widgets.scopes)
-            end)
 
             -- start dap
             local dap = require('dap')
@@ -101,18 +62,20 @@ return {
                 dapui.close()
             end
 
+
+            vim.fn.sign_define('DapBreakpoint', { text = '🔴', texthl = '', linehl = '', numhl = '' })
+
             -- Requires gdb 14.0+
             dap.adapters.gdb = {
                 type = "executable",
                 command = "/home/refantasy/.conda/envs/cpplib/bin/gdb",
                 args = { "-i", "dap" }
             }
-            
+
             dap.adapters.codelldb = {
                 type = 'server',
                 port = "${port}",
                 executable = {
-                    -- CHANGE THIS to your path!
                     command = os.getenv("HOME") .. '/.local/share/nvim/mason/bin/codelldb',
                     args = { "--port", "${port}" },
                     -- On windows you may have to uncomment this:
@@ -120,25 +83,24 @@ return {
                 }
             }
 
-            dap.adapters.cppdbg = {
-                id = 'cppdbg',
-                type = 'executable',
-                -- command = '' .. vim.fn.exepath('OpenDebugAD7'),
-                command = os.getenv("HOME") .. '/.local/share/nvim/mason/bin/OpenDebugAD7',
-            }
+            -- dap.adapters.cppdbg = {
+            --     id = 'cppdbg',
+            --     type = 'executable',
+            --     -- command = '' .. vim.fn.exepath('OpenDebugAD7'),
+            --     command = os.getenv("HOME") .. '/.local/share/nvim/mason/bin/OpenDebugAD7',
+            -- }
 
             dap.configurations.cpp = {
-                {
-                    type = "cppdbg",
-                    name = "Launch file",
-                    request = "launch",
-                    --program = "/home/refantasy/.config/nvim/learnlsp/a.out",
-                    program = function()
-                        return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-                    end,
-                    cwd = '${workspaceFolder}',
-                    stopAtEntry = true,
-                },
+                -- {
+                --     type = "cppdbg",
+                --     name = "Launch file",
+                --     request = "launch",
+                --     program = function()
+                --         return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+                --     end,
+                --     cwd = '${workspaceFolder}',
+                --     stopAtEntry = true,
+                -- },
                 {
                     name = "Launch file",
                     type = "codelldb",

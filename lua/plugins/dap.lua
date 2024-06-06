@@ -101,8 +101,13 @@ return {
                 dapui.close()
             end
 
-
-
+            -- Requires gdb 14.0+
+            dap.adapters.gdb = {
+                type = "executable",
+                command = "/home/refantasy/.conda/envs/cpplib/bin/gdb",
+                args = { "-i", "dap" }
+            }
+            
             dap.adapters.codelldb = {
                 type = 'server',
                 port = "${port}",
@@ -115,7 +120,6 @@ return {
                 }
             }
 
-            -- debug cpp
             dap.adapters.cppdbg = {
                 id = 'cppdbg',
                 type = 'executable',
@@ -144,6 +148,16 @@ return {
                     end,
                     cwd = '${workspaceFolder}',
                     stopOnEntry = false,
+                },
+                {
+                    name = "Launch",
+                    type = "gdb",
+                    request = "launch",
+                    program = function()
+                        return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+                    end,
+                    cwd = "${workspaceFolder}",
+                    stopAtBeginningOfMainSubprogram = false,
                 },
             }
 

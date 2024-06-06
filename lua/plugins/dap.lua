@@ -101,6 +101,20 @@ return {
                 dapui.close()
             end
 
+
+
+            dap.adapters.codelldb = {
+                type = 'server',
+                port = "${port}",
+                executable = {
+                    -- CHANGE THIS to your path!
+                    command = os.getenv("HOME") .. '/.local/share/nvim/mason/bin/codelldb',
+                    args = { "--port", "${port}" },
+                    -- On windows you may have to uncomment this:
+                    -- detached = false,
+                }
+            }
+
             -- debug cpp
             dap.adapters.cppdbg = {
                 id = 'cppdbg',
@@ -120,6 +134,16 @@ return {
                     end,
                     cwd = '${workspaceFolder}',
                     stopAtEntry = true,
+                },
+                {
+                    name = "Launch file",
+                    type = "codelldb",
+                    request = "launch",
+                    program = function()
+                        return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+                    end,
+                    cwd = '${workspaceFolder}',
+                    stopOnEntry = false,
                 },
             }
 

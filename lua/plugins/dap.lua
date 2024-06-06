@@ -61,21 +61,40 @@ return {
                 dapui.close()
             end
 
-            dap.adapters.lldb= {
-                type = 'executable',
-                command = vim.fn.exepath('codelldb'),
-                name = 'lldb'
-            }
+            -- dap.adapters.cppdbg= {
+            --     id = 'cppdbg',
+            --     type = 'executable',
+            --     command = vim.fn.exepath('OpenDebugAD7'),
+            -- }
+            --
+            -- dap.configurations.cppdbg= {
+            --     {
+            --         name = 'Launch file',
+            --         type = 'cppdbg',
+            --         request = 'launch',
+            --         program = function()
+            --             return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+            --         end,
+            --         cwd = '${workspaceFolder}',
+            --         stopAtEntry = true,
+            --     }, }
 
-            dap.configurations.lldb= {
-                name = "Launch file",
-                type = "lldb",
-                request = "launch",
-                program = "/home/refantasy/.config/nvim/learnlsp/a.out",
-                cwd = '${workspaceFolder}',
-                stopOnEntry = false,
-                args = {},
-            }
+
+            -- dap.adapters.lldb= {
+            --     type = 'executable',
+            --     command = vim.fn.exepath('codelldb'),
+            --     name = 'lldb'
+            -- }
+            --
+            -- dap.configurations.lldb= {
+            --     name = "Launch file",
+            --     type = "lldb",
+            --     request = "launch",
+            --     program = "/home/refantasy/.config/nvim/learnlsp/a.out",
+            --     cwd = '${workspaceFolder}',
+            --     stopOnEntry = false,
+            --     args = {},
+            -- }
 
             -- python
             -- dap.adapters.python = {
@@ -105,11 +124,11 @@ return {
             --     },
             -- }
 
-            -- require('mason-nvim-dap').setup({
-            --     ensure_installed = { 'python', 'codelldb', 'cppdbg' },
-            --     automatic_installation = false,
-            --     handlers = {}, -- sets up dap in the predefined manner
-            -- })
+            require('mason-nvim-dap').setup({
+                ensure_installed = { 'python', 'codelldb', 'cppdbg' },
+                automatic_installation = false,
+                handlers = {}, -- sets up dap in the predefined manner
+            })
         end,
     },
     -- nvim-dap-ui

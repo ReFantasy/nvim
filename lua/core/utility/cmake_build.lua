@@ -9,7 +9,7 @@ function cmake_build.build()
     if file then
         io.close(file)
         vim.fn.system(string.format("mkdir build"))
-        vim.fn.system(string.format("cmake -S . -B build"))
+        vim.fn.system(string.format("cmake -S . -B build -DCMAKE_BUILD_TYPE=debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON"))
         vim.fn.system(string.format("cmake --build build"))
 
         vim.notify("build finished", vim.log.levels.INFO)

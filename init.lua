@@ -2,10 +2,10 @@ vim.loader.enable()
 
 require('core.options')
 require('core.keymaps')
-
 require('lazy_nvim')
 
-
+require('core.utility.cmake_build')
+vim.keymap.set('n', '<F4>', cmake_build.build)
 -- define your colorscheme here
 -- vim.cmd("colorscheme monokai_pro")
 --local colorscheme = 'embark'

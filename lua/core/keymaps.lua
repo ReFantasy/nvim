@@ -32,6 +32,9 @@ keymap.set('n', '<S-Right>', ':vertical resize +2<CR>', opts)
 keymap.set("n", "<A-Tab>", "<cmd>bNext<CR>", opts)
 -- keymap.set("n", "<leader>bc", "<cmd>bd<CR>", opts) --关闭buffer
 
+-- require('cmake_build')
+
+
 -----------------
 -- Visual mode --
 -----------------

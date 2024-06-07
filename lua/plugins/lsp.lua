@@ -12,10 +12,6 @@ local on_attach = function(_, bufnr)
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end
 
-    -- formate code
-    local fm = function()
-        vim.lsp.buf.format { async = true }
-    end
 
     nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
     --nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
@@ -41,8 +37,6 @@ local on_attach = function(_, bufnr)
     nmap('<leader>ot', "<cmd>Lspsaga outline<CR>", '[O]u[T] line')
 
     nmap('<leader>da', require('telescope.builtin').diagnostics, '[D]i[A]gnostics')
-
-    nmap("<leader>fm", fm, "[F]ormat code")
 end
 
 local servers = {

@@ -25,6 +25,7 @@ return {
 
     ----------------------- 实用工具 -----------------------
     {
+        -- 自动补全括号
         "windwp/nvim-autopairs",
         event = "VeryLazy",
         config = function()
@@ -34,18 +35,20 @@ return {
         end,
     },
     {
+        -- 打开文件重新定位到上次的编辑位置
         "ethanholz/nvim-lastplace",
         config = true,
     },
     {
+        -- 查看键盘映射 :WhichKey
         "folke/which-key.nvim",
-        config = true,
-    },
-    {
-        "echasnovski/mini.comment",
-        config = true,
-    },
-    {
-
+        event = "VeryLazy",
+        config = function()
+            require("which-key").setup {
+                window = {
+                    border = "single", -- none, single, double, shadow
+                },
+            }
+        end
     },
 }

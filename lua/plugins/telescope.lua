@@ -56,7 +56,9 @@ return {
             vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
             vim.keymap.set('n', '<leader><space>', builtin.buffers, {})
             vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-            vim.keymap.set('n', '<leader>?', builtin.oldfiles, { desc = '[?] Find recently opened files' })
+
+            vim.keymap.set('n', '<leader>/', builtin.oldfiles, { desc = '[C] Find recently opened files' })
+
 
             local search_cur_file = function()
                 builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
@@ -64,7 +66,7 @@ return {
                     previewer = false,
                 })
             end
-            vim.keymap.set('n', '<leader>/', search_cur_file, { desc = '[/] Fuzzily search in current buffer' })
+            vim.keymap.set('n', '<leader>s', search_cur_file, { desc = '[C] Fuzzily [S]earch content in current buffer' })
         end,
     },
     {

@@ -29,12 +29,15 @@ return {
 
 
             require("nvim-tree").setup({
-                on_attach = my_on_attach
+                on_attach = my_on_attach,
+                filters = {
+                    dotfiles = true,
+                },
             })
 
             local api = require "nvim-tree.api"
 
-            -- 打开（关闭）目录树, 并且不要获取窗口焦点
+            -- 打开（关闭）目录树
             local tree_toggle = function()
                 api.tree.toggle()
             end

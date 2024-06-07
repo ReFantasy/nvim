@@ -14,22 +14,15 @@ keymap.set('v', 'H', '<gv', opts)
 keymap.set('v', 'L', '>gv', opts)
 
 
--- 窗口操作
---keymap.set("n", "<leader>sv", "<C-w>v") --水平新增窗口
---keymap.set("n", "<leader>sh", "<C-w>s") --垂直新增窗口
-
-keymap.set('n', '<C-h>', '<C-w>h', opts)
-keymap.set('n', '<C-j>', '<C-w>j', opts)
-keymap.set('n', '<C-k>', '<C-w>k', opts)
-keymap.set('n', '<C-l>', '<C-w>l', opts)
-
+-- 调整窗口大小
 keymap.set('n', '<S-Up>', ':resize -2<CR>', opts)
 keymap.set('n', '<S-Down>', ':resize +2<CR>', opts)
 keymap.set('n', '<S-Left>', ':vertical resize -2<CR>', opts)
 keymap.set('n', '<S-Right>', ':vertical resize +2<CR>', opts)
 
--- buffer切换
+-- buffer
 keymap.set("n", "<A-Tab>", "<cmd>bNext<CR>", opts)
+keymap.set("n", "<leader>bd", "<cmd>bd<CR>", opts)
 -- keymap.set("n", "<leader>bc", "<cmd>bd<CR>", opts) --关闭buffer
 
 -- require('cmake_build')

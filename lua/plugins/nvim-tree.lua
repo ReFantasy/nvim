@@ -1,4 +1,4 @@
-local function nvtree_on_attach(bufnr)
+local function my_on_attach(bufnr)
     local api = require "nvim-tree.api"
 
     local function opts(desc)
@@ -10,7 +10,7 @@ local function nvtree_on_attach(bufnr)
 
     -- custom mappings
     -- vim.keymap.set('n', '<C-u>', api.tree.change_root_to_parent,        opts('Up'))
-    -- vim.keymap.set('n', '?',     api.tree.toggle_help,                  opts('Help'))
+    vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
 end
 
 return {
@@ -22,19 +22,26 @@ return {
         enabled = true,
         version = "*",
         lazy = false,
-        --dependencies = {
-        --	"kyazdani42/nvim-web-devicons"
-        --},
+
         config = function()
             vim.g.loaded_netrw = 1
             vim.g.loaded_netrwPlugin = 1
 
-            -- 打开（关闭）文件目录快捷键
-            vim.api.nvim_set_keymap("n", "<leader>e", ":NvimTreeToggle<cr>", { silent = true, noremap = true })
 
             require("nvim-tree").setup({
-                on_attach = nvtree_on_attach
+                on_attach = my_on_attach
             })
+
+            local api = require "nvim-tree.api"
+
+            -- 打开（关闭）目录树, 并且不要获取窗口焦点
+            local tree_toggle = function()
+                api.tree.toggle()
+            end
+            vim.keymap.set('n', '<leader>e', tree_toggle, {})
+
+            -- 切换到目录树
+            vim.keymap.set('n', '<leader>t', api.tree.focus, {})
         end,
     }
 }

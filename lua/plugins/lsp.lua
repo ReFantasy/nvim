@@ -38,6 +38,12 @@ local on_attach = function(_, bufnr)
 
     -- nmap('<leader>da', require('telescope.builtin').diagnostics, '[D]i[A]gnostics')
     nmap('<leader>da', '<cmd>Lspsaga show_buf_diagnostics<CR>', '[D]i[A]gnostics')
+
+    -- formate code
+    -- local lfm = function()
+    --     vim.lsp.buf.format { async = true }
+    -- end
+    -- nmap('<leader>lfm', lfm, 'LSP [F]ormat code')
 end
 
 local servers = {

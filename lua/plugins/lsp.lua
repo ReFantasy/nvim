@@ -36,7 +36,8 @@ local on_attach = function(_, bufnr)
 
     nmap('<leader>ot', "<cmd>Lspsaga outline<CR>", '[O]u[T] line')
 
-    nmap('<leader>da', require('telescope.builtin').diagnostics, '[D]i[A]gnostics')
+    -- nmap('<leader>da', require('telescope.builtin').diagnostics, '[D]i[A]gnostics')
+    nmap('<leader>da', '<cmd>Lspsaga show_buf_diagnostics<CR>', '[D]i[A]gnostics')
 end
 
 local servers = {

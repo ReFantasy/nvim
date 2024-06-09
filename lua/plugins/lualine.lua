@@ -92,7 +92,11 @@ return {
                 component_separators = { left = '|', right = '|' },
                 disabled_filetypes = { "dashboard", "NvimTree", "Outline" },
                 always_divide_middle = true,
-
+                -- refresh = {
+                --     statusline = 0,
+                --     tabline = 0,
+                --     winbar = 0,
+                -- }
             },
             sections = {
                 lualine_a = { mode, get_os_icon },

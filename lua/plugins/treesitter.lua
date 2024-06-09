@@ -1,10 +1,10 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    event = "VeryLazy",
+    tag = 'v0.9.2',
     config = function()
         require("nvim-treesitter.configs").setup {
-            --ensure_installed = { "cpp", "lua", "vim", "vimdoc", "python" },
-            ensure_installed = "all",
+            ensure_installed = { "cpp", "lua", "vim", "vimdoc", "python" },
+            -- ensure_installed = "all",
             highlight = {
                 enable = true,
                 additional_vim_regex_highlighting = false

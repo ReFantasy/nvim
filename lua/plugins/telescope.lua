@@ -2,26 +2,6 @@ return {
     {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.7',
-        keys = {
-            { '<leader>?',       "<cmd>lua require('telescope.builtin').oldfiles()<cr>" },
-            { "<leader><space>", "<cmd>lua require('telescope.builtin').buffers({ sort_mru = true })<cr>" },
-            { "<leader>/",
-                function()
-                    -- You can pass additional configuration to telescope to change theme, layout, etc.
-                    require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-                        winblend = 10,
-                        previewer = false,
-                    })
-                end
-            },
-            { '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<cr>" },
-            { '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<cr>" },
-            { '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<cr>" },
-            { '<leader>fp', "<cmd>lua require('telescope.builtin').builtin()<cr>" },
-            { '<leader>qf', "<cmd>lua require('telescope.builtin').quickfix()<cr>" },
-            { '<leader>km', "<cmd>lua require('telescope.builtin').keymaps()<cr>" },
-            { '<c-p>',      "<cmd>lua require('telescope.builtin').commands()<cr>" },
-        },
         dependencies = {
             'nvim-lua/plenary.nvim',
             { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
@@ -56,8 +36,7 @@ return {
             vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
             vim.keymap.set('n', '<leader><space>', builtin.buffers, {})
             vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-
-            vim.keymap.set('n', '<leader>/', builtin.oldfiles, { desc = '[C] Find recently opened files' })
+            vim.keymap.set('n', '<leader>fo', builtin.oldfiles, { desc = '[C] Find recently opened files' })
 
 
             local search_cur_file = function()

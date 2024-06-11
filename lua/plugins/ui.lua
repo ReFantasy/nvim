@@ -2,7 +2,6 @@ return {
     {
         -- 对齐竖线
         "lukas-reineke/indent-blankline.nvim",
-        event = "VeryLazy",
         main = "ibl",
         opts = {},
         config = function()
@@ -16,7 +15,6 @@ return {
     {
         -- 高亮光标所在位置所有相同单词
         'RRethy/vim-illuminate',
-        event = "VeryLazy",
         config = function()
             require('illuminate').configure({
             })
@@ -27,7 +25,6 @@ return {
     {
         -- 自动补全括号
         "windwp/nvim-autopairs",
-        event = "VeryLazy",
         config = function()
             require('nvim-autopairs').setup({
                 enable_check_bracket_line = false
@@ -42,7 +39,6 @@ return {
     {
         -- 查看键盘映射 :WhichKey
         "folke/which-key.nvim",
-        event = "VeryLazy",
         config = function()
             require("which-key").setup {
                 window = {
@@ -51,25 +47,24 @@ return {
             }
         end
     },
-    {
-        -- 快速跳转
-        "folke/flash.nvim",
-        event = "VeryLazy",
-        ---@type Flash.Config
-        opts = {},
-        -- stylua: ignore
-        keys = {
-            { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
-            { "S",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
-            { "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
-            { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-            { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
-        },
-    },
+    -- {
+    --     -- 快速跳转
+    --     "folke/flash.nvim",
+    --     event = "VeryLazy",
+    --     ---@type Flash.Config
+    --     opts = {},
+    --     -- stylua: ignore
+    --     keys = {
+    --         { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
+    --         { "S",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
+    --         { "r",     mode = "o",               function() require("flash").remote() end,            desc = "Remote Flash" },
+    --         { "R",     mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+    --         { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
+    --     },
+    -- },
     {
         's1n7ax/nvim-window-picker',
         name = 'window-picker',
-        event = 'VeryLazy',
         version = '2.*',
         config = function()
             require 'window-picker'.setup({

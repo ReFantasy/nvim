@@ -25,6 +25,12 @@ keymap.set("n", "<A-Tab>", "<cmd>bNext<CR>", opts)
 keymap.set("n", "<leader>bd", "<cmd>bd<CR>", opts)
 -- keymap.set("n", "<leader>bc", "<cmd>bd<CR>", opts) --关闭buffer
 
+
+-- 分屏
+keymap.set("n", "|", "<cmd>vsplit<CR>", opts)
+keymap.set("n", "\\", "<cmd>split<CR>", opts)
+
+
 -- require('cmake_build')
 
 

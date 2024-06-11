@@ -16,9 +16,6 @@ end
 return {
     {
         "nvim-tree/nvim-tree.lua",
-        keys = {
-            { "<leader>e", "<cmd>Neotree toggle<CR>", desc = "Open the neo-tree", mode = { "n", "v" } }
-        },
         enabled = true,
         version = "*",
         lazy = false,

@@ -1,7 +1,6 @@
 return {
     {
         "hrsh7th/nvim-cmp",
-        event = { "BufReadPost", "BufNewFile" },
         dependencies = {
             "hrsh7th/cmp-path",     -- path auto-completion
             "hrsh7th/cmp-nvim-lsp", -- lsp auto-completion

@@ -27,7 +27,7 @@ local mode = {
     "mode",
     --fmt = function(str)
     --	return "-- " .. str .. " --"
-    --end,
+    --end,,
 }
 
 local branch = {
@@ -86,6 +86,7 @@ return {
 
         lualine.setup({
             options = {
+                height = 2,
                 theme = custom_theme, --"auto",
                 icons_enabled = false,
                 section_separators = { left = '', right = '' },

@@ -48,6 +48,4 @@ return {
             vim.keymap.set('n', '<leader>s', search_cur_file, { desc = '[C] Fuzzily [S]earch content in current buffer' })
         end,
     },
-    {
-    }
 }

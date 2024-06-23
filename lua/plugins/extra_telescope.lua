@@ -8,7 +8,7 @@ return {
             -- { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' }
         },
         config = function()
-            local status, actions = pcall(require, "telescope.actions")
+            local status, _ = pcall(require, "telescope.actions")
             if (not status) then
                 return
             end

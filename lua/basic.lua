@@ -8,6 +8,7 @@ vim.opt.wrap = false
 --opt.undofile = true --始终保留历史操作
 vim.opt.exrc = true -- 支持项目目录下的局部配置
 vim.b.fileenconding = "utf-8"
+vim.opt.scrolloff = 5
 
 -- Tab
 vim.opt.tabstop = 4      -- number of visual spaces per TAB

@@ -1,8 +1,6 @@
 -- lazy load
 local keys = {
-    { '<F5>', function()
-        require 'telescope'.extensions.dap.configurations {}
-    end },
+    { '<F5>',  function() require 'telescope'.extensions.dap.configurations {} end },
     { '<F9>',  function() require('dap').toggle_breakpoint() end },
     { '<F10>', function() require('dap').step_over() end },
     { '<F11>', function() require('dap').step_into() end },
@@ -10,6 +8,7 @@ local keys = {
     -- { '<F12>',     '<cmd>DapTerminate<cr><cmd>only!<cr>' },
     { '<F12>', function() require('dap').terminate() end },
 }
+
 return {
     {
         'mfussenegger/nvim-dap',
@@ -22,6 +21,8 @@ return {
             'theHamsta/nvim-dap-virtual-text',
             'nvim-telescope/telescope-dap.nvim',
             --"jay-babu/mason-nvim-dap.nvim",
+            -- for python
+            -- 'mfussenegger/nvim-dap-python',
         },
         config = function()
             -- visual studio sytle
@@ -146,6 +147,8 @@ return {
                     end,
                 },
             }
+
+            -- require("dap-python").setup("python")
         end,
     },
 }

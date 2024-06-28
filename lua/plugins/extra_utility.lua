@@ -38,16 +38,17 @@ return {
         --         }
         --     })
         -- end,
-        'nvimdev/indentmini.nvim',
-        event = 'BufEnter',
-        config = function()
-            require("indentmini").setup({
-                -- char = '|',
-                excluse = {},
-            }) -- use default config
-            vim.cmd.highlight('default link IndentLine Comment')
-            vim.cmd.highlight('IndentLineCurrent guifg=#495357')
-        end,
+        -- 'nvimdev/indentmini.nvim',
+        -- ebabled = false,
+        -- event = 'BufEnter',
+        -- config = function()
+        --     require("indentmini").setup({
+        --         -- char = '|',
+        --         excluse = {},
+        --     }) -- use default config
+        --     vim.cmd.highlight('default link IndentLine Comment')
+        --     vim.cmd.highlight('IndentLineCurrent guifg=#495357')
+        -- end,
     },
     {
         -- 高亮光标所在位置所有相同单词

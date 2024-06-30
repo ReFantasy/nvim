@@ -40,13 +40,13 @@ return {
             vim.keymap.set('n', '<leader>fo', builtin.oldfiles, { desc = '[C] Find recently opened files' })
 
 
-            local search_cur_file = function()
-                builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-                    winvlend = 10,
-                    previewer = false,
-                })
-            end
-            vim.keymap.set('n', '<leader>s', search_cur_file, { desc = '[C] Fuzzily [S]earch content in current buffer' })
+            -- local search_cur_file = function()
+            --     builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+            --         winvlend = 10,
+            --         previewer = false,
+            --     })
+            -- end
+            -- vim.keymap.set('n', '<leader>s', search_cur_file, { desc = '[C] Fuzzily [S]earch content in current buffer' })
         end,
     },
 }

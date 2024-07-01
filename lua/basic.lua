@@ -66,7 +66,7 @@ vim.keymap.set('v', 'H', '<gv', opts)
 vim.keymap.set('v', 'L', '>gv', opts)
 
 
-vim.lsp.inlay_hint.enable(true)
+-- vim.lsp.inlay_hint.enable(true)
 
 
 

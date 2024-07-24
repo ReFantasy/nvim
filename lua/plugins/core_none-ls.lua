@@ -14,6 +14,9 @@ return {
                 null_ls.builtins.formatting.clang_format.with({
                     extra_args = { "--style", "Microsoft" },
                 }),
+                null_ls.builtins.formatting.cmake_format.with({
+                    extra_args = { "--tab-size", "4" },
+                }),
             },
         })
     end,

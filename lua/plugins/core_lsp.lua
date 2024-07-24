@@ -34,7 +34,6 @@ local servers = {
 		},
 	},
 	cmake = {},
-	marksman = {},
 }
 
 -- 映射

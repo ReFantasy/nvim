@@ -51,6 +51,12 @@ local servers = {
 			scan_cmake_in_package = true, -- default is true
 		},
 	},
+	-- marksman = {},
+	marksman = {
+		cmd = { "marksman", "server" },
+		filetype = { "markdown", "markdown.mdx" },
+		single_file_support = true,
+	},
 }
 
 -- 映射
@@ -78,10 +84,10 @@ local on_attach = function(_, bufnr)
 	-- nmap('<leader>dl', builtin.diagnostics, '[D]i[A]gnostics [L]ist')
 	-- nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 
-	nmap("K", "<cmd>Lspsaga hover_doc<CR>", "Hover Documentation")
+	-- nmap("K", "<cmd>Lspsaga hover_doc<CR>", "Hover Documentation")
+	nmap("gk", "<cmd>Lspsaga peek_definition<cr>", "[C] [G]o to [P]eek definition")
 	nmap("<leader>rn", "<cmd>Lspsaga rename<CR>", "[R]e[n]ame")
 	nmap("<leader>ca", "<cmd>Lspsaga code_action<cr>", "[C]ode [A]ction")
-	nmap("gk", "<cmd>Lspsaga peek_definition<cr>", "[C] [G]o to [P]eek definition")
 
 	nmap("<leader>fm", function()
 		vim.lsp.buf.format({ async = true })

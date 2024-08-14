@@ -33,7 +33,7 @@ local servers = {
             --"-Wno-unused",
         },
     },
-    -- cmake = {},
+    cmake = {},
     neocmake = {
         cmd = { "neocmakelsp", "--stdio" },
         filetypes = { "cmake" },

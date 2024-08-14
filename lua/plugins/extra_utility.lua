@@ -225,4 +225,8 @@ return {
 			-- vim.o.mousemoveevent = true
 		end,
 	},
+    -- copilot
+    {
+        "github/copilot.vim",
+    }
 }

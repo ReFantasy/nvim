@@ -14,9 +14,9 @@ return {
                 null_ls.builtins.formatting.clang_format.with({
                     extra_args = { "--style", "Microsoft", "-style", '" {AccessModifierOffset:-4} "' },
                 }),
-                -- null_ls.builtins.formatting.cmake_format.with({
-                -- 	extra_args = { "--tab-size", "4", "--line-width", "120" },
-                -- }),
+                null_ls.builtins.formatting.cmake_format.with({
+                	extra_args = { "--tab-size", "4", "--line-width", "120" },
+                }),
                 -- null_ls.builtins.diagnostics.markdownlint.with({}),
             },
         })

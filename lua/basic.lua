@@ -58,12 +58,13 @@ vim.keymap.set('n', '<S-Right>', ':vertical resize +2<CR>', opts)
 -- 分屏
 vim.keymap.set("n", "|", "<cmd>vsplit<CR>", opts)
 vim.keymap.set("n", "\\", "<cmd>split<CR>", opts)
-
 -- 单行或多行移动
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set('v', 'H', '<gv', opts)
 vim.keymap.set('v', 'L', '>gv', opts)
+-- 切换buffer 
+vim.keymap.set('n', '<leader><space>', ':bnext<CR>', opts)
 
 
 -- vim.lsp.inlay_hint.enable(true)

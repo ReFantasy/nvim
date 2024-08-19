@@ -1,7 +1,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-
 vim.opt.autoread = true
 vim.opt.swapfile = false
 vim.opt.wrap = false
@@ -48,28 +47,37 @@ vim.opt.signcolumn = "yes"
 -----------------------------------------------------------------------------------------
 local opts = {
     noremap = true, -- non-recursive
-    silent = true,  -- do not show message
+    silent = true, -- do not show message
 }
 -- 调整窗口大小
-vim.keymap.set('n', '<S-Up>', ':resize -2<CR>', opts)
-vim.keymap.set('n', '<S-Down>', ':resize +2<CR>', opts)
-vim.keymap.set('n', '<S-Left>', ':vertical resize -2<CR>', opts)
-vim.keymap.set('n', '<S-Right>', ':vertical resize +2<CR>', opts)
+vim.keymap.set("n", "<S-Up>", ":resize -2<CR>", opts)
+vim.keymap.set("n", "<S-Down>", ":resize +2<CR>", opts)
+vim.keymap.set("n", "<S-Left>", ":vertical resize -2<CR>", opts)
+vim.keymap.set("n", "<S-Right>", ":vertical resize +2<CR>", opts)
 -- 分屏
 vim.keymap.set("n", "|", "<cmd>vsplit<CR>", opts)
 vim.keymap.set("n", "\\", "<cmd>split<CR>", opts)
 -- 单行或多行移动
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-vim.keymap.set('v', 'H', '<gv', opts)
-vim.keymap.set('v', 'L', '>gv', opts)
--- 切换buffer 
-vim.keymap.set('n', '<leader><space>', ':bnext<CR>', opts)
+vim.keymap.set("v", "H", "<gv", opts)
+vim.keymap.set("v", "L", ">gv", opts)
+-- 切换buffer
+vim.keymap.set("n", "<leader><space>", ":bnext<CR>", opts)
 
+-- hex and text editing
+local function byte2hex()
+    vim.cmd("%! xxd -g 1 -u")
+    vim.b.hex_ft = vim.bo.filetype
+    vim.opt_local.binary = true
+    vim.bo.filetype = "xxd"
+end
+local function hex2byte()
+    vim.cmd("%! xxd -r")
+    vim.bo.filetype = vim.b.hex_ft
+    vim.opt_local.binary = false
+end
+vim.api.nvim_create_user_command("HexEdit", byte2hex, {})
+vim.api.nvim_create_user_command("Hex2Byte", hex2byte, {})
 
 -- vim.lsp.inlay_hint.enable(true)
-
-
-
-
-

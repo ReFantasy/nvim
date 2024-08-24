@@ -87,7 +87,7 @@ vim.api.nvim_create_user_command("Hex2Byte", hex2byte, {})
 vim.opt.foldenable = true
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
-vim.opt.foldcolumn = "1"
+-- vim.opt.foldcolumn = "1"
 
 -- vim.lsp.inlay_hint.enable(true)
 

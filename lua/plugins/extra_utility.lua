@@ -136,6 +136,7 @@ return {
 	},
 	{
 		"folke/noice.nvim",
+        enabled=false, --there seems to be an issue when using both this plugin and "s1n7ax/nvim-window-picker"
 		event = "VeryLazy",
 		opts = {
 			-- add any options here

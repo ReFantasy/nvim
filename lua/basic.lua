@@ -82,10 +82,11 @@ vim.api.nvim_create_user_command("Hex2Byte", hex2byte, {})
 
 
 -- 代码折叠
-vim.opt.foldmethod = "expr"
--- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+-- vim.opt.foldmethod = "expr"
+-- vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldenable = true
 vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldcolumn = "1"
 
 -- vim.lsp.inlay_hint.enable(true)

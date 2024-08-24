@@ -111,6 +111,8 @@ return {
             ensure_installed = vim.tbl_keys(servers),
             automatic_installed = {},
         })
+        capabilities.textDocument.completion.editsNearCursor = true
+        capabilities.offsetEncoding =  "utf-8"
 
         for server, cfg in pairs(servers) do
             require("lspconfig")[server].setup(vim.tbl_deep_extend("keep", {

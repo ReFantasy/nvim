@@ -90,3 +90,5 @@ vim.opt.foldlevelstart = 99
 vim.opt.foldcolumn = "1"
 
 -- vim.lsp.inlay_hint.enable(true)
+
+

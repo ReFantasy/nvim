@@ -175,6 +175,7 @@ return {
 			vim.fn["mkdp#util#install"]()
 		end,
 	},
+	{ "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
 	-- Create annotations
 	{
 		"danymat/neogen",
@@ -219,7 +220,7 @@ return {
 				provider_selector = function(bufnr, filetype, buftype)
 					return { "treesitter", "indent" }
 				end,
-                fold_virt_text_handler = handler,
+				fold_virt_text_handler = handler,
 			})
 		end,
 	},

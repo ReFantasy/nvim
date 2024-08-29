@@ -205,7 +205,7 @@ local defaults = {
 }
 return {
 	"folke/trouble.nvim",
-    -- enabled = false,
+	-- enabled = false,
 	opts = defaults, -- for default options, refer to the configuration section for custom setup.
 	cmd = "Trouble",
 	keys = {

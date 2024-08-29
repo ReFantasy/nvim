@@ -224,4 +224,23 @@ return {
 			})
 		end,
 	},
+	{
+		"nvimdev/lspsaga.nvim",
+		event = "VeryLazy",
+		config = function()
+			local nmap = function(keys, func, desc)
+				vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc, silent = true })
+			end
+			require("lspsaga").setup({})
+
+			nmap("K", "<cmd>Lspsaga hover_doc<CR>", "Hover Documentation")
+			nmap("gk", "<cmd>Lspsaga peek_definition<cr>", "[C] [G]o to [P]eek definition")
+			nmap("<leader>rn", "<cmd>Lspsaga rename<CR>", "[R]e[n]ame")
+			nmap("<leader>ca", "<cmd>Lspsaga code_action<cr>", "[C]ode [A]ction")
+		end,
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter", -- optional
+			"nvim-tree/nvim-web-devicons", -- optional
+		},
+	},
 }

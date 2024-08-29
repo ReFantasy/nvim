@@ -8,6 +8,9 @@ return {
 			ensure_installed = {
 				"bash",
 				"c",
+				"cpp",
+				"cmake",
+				"python",
 				"diff",
 				"html",
 				"lua",

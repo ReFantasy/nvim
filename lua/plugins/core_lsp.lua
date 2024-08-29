@@ -279,14 +279,14 @@ return {
 			})
 
 			require("lspconfig.ui.windows").default_options.border = "rounded"
-			-- vim.diagnostic.config({
-			-- 	virtual_text = false, -- 关闭在虚拟文本中显示代码诊断信息
-			-- 	underline = false,
-			-- 	float = {
-			-- 		border = "rounded",
-			-- 	},
-			-- 	severity = vim.diagnostic.severity.ERROR,
-			-- })
+			vim.diagnostic.config({
+				virtual_text = false, -- 关闭在虚拟文本中显示代码诊断信息
+				underline = false,
+				float = {
+					border = "rounded",
+				},
+				-- severity = vim.diagnostic.severity.ERROR,
+			})
 		end,
 	},
 }

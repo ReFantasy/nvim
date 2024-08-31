@@ -37,6 +37,7 @@ local keys = {
 return {
 	{
 		"mfussenegger/nvim-dap",
+		enabled = false,
 		keys = keys,
 		dependencies = {
 			{

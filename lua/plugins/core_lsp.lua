@@ -51,6 +51,8 @@ local servers = {
 			"--completion-style=detailed",
 			"-j=8",
 			"--pch-storage=memory",
+			"--fallback-style=Microsoft",
+			"--pretty",
 			--"-Wno-unused",
 		},
 	},

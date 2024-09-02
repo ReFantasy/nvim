@@ -49,7 +49,7 @@ local servers = {
 			"--clang-tidy",
 			"--all-scopes-completion",
 			"--completion-style=detailed",
-			"--j=8",
+			"-j=8",
 			"--pch-storage=memory",
 			--"-Wno-unused",
 		},

@@ -23,7 +23,7 @@ vim.opt.breakindent = true
 vim.opt.number = true -- show absolute number
 vim.opt.relativenumber = true
 vim.opt.cursorline = true -- highlight cursor line underneath the cursor horizontally
-vim.opt.showmode = true -- we are experienced, wo don't need the "-- INSERT --" mode hint
+vim.opt.showmode = false -- we are experienced, wo don't need the "-- INSERT --" mode hint
 
 -- 启用鼠标
 vim.opt.mouse:append("a")

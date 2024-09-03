@@ -360,109 +360,117 @@
 -- }
 
 ---------------------------------------------------------------------------------------------
+-- return {
+-- 	{
+-- 		"catppuccin/nvim",
+-- 		enabled = false,
+-- 		name = "catppuccin",
+-- 		priority = 1000,
+--
+-- 		config = function()
+-- 			require("catppuccin").setup({
+-- 				background = { -- :h background
+-- 					light = "latte",
+-- 					dark = "mocha",
+-- 				},
+-- 				transparent_background = false, -- disables setting the background color.
+-- 				show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
+-- 				term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
+-- 				dim_inactive = {
+-- 					enabled = false, -- dims the background color of inactive window
+-- 					shade = "dark",
+-- 					percentage = 0.15, -- percentage of the shade to apply to the inactive window
+-- 				},
+-- 				no_italic = false, -- Force no italic
+-- 				no_bold = false, -- Force no bold
+-- 				no_underline = false, -- Force no underline
+-- 				styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
+-- 					comments = { "italic" }, -- Change the style of comments
+-- 					conditionals = {},
+-- 					loops = {},
+-- 					functions = {},
+-- 					keywords = {},
+-- 					strings = {},
+-- 					variables = {},
+-- 					numbers = {},
+-- 					booleans = {},
+-- 					properties = {},
+-- 					types = {},
+-- 					operators = {},
+-- 					-- miscs = {}, -- Uncomment to turn off hard-coded styles
+-- 				},
+-- 				color_overrides = {
+-- 					-- all = {
+-- 					-- 	text = "#ffffff",
+-- 					-- },
+-- 					-- mocha = {
+-- 					-- },
+-- 					-- frappe = {
+-- 					-- },
+-- 				},
+-- 				highlight_overrides = {
+-- 					all = function(colors)
+-- 						return {
+-- 							-- xcode default dark
+-- 							["@comment"] = { fg = "#74818d" },
+-- 							["@keyword"] = { fg = "#fd6fa7" },
+-- 							["@string"] = { fg = "#fe7567" },
+-- 						}
+-- 					end,
+-- 					-- mocha = function(mocha)
+-- 					-- 	return {
+-- 					-- 		-- xcode default dark
+-- 					-- 		["@comment"] = { fg = "#74818d" },
+-- 					-- 		["@keyword"] = { fg = "#fd6fa7" },
+-- 					-- 		["@string"] = { fg = "#fe7567" },
+-- 					-- 	}
+-- 					-- end,
+-- 				},
+-- 				custom_highlights = function(colors)
+-- 					return {
+-- 						-- Comment = { fg = "#74818d" },
+-- 						-- Keyword = { fg = "#fd6fa7" },
+-- 						-- Strings = { fg = colors.pink }, --{ fg = "#fe7567" },
+-- 						-- TabLineSel = { bg = colors.pink },
+-- 						-- CmpBorder = { fg = colors.surface2 },
+-- 						-- Pmenu = { bg = colors.none },
+-- 					}
+-- 				end,
+-- 				default_integrations = true,
+--
+-- 				integrations = {
+-- 					cmp = true,
+-- 					gitsigns = true,
+-- 					neotree = false,
+-- 					nvimtree = true,
+-- 					treesitter = true,
+-- 					notify = false,
+-- 					mini = {
+-- 						enabled = true,
+-- 						indentscope_color = "",
+-- 					},
+-- 					-- coustomize
+-- 					barbecue = { dim_dirname = true, bold_basename = true, dim_context = false, alt_background = false },
+-- 					hop = true,
+-- 					illuminate = { enabled = true },
+-- 					native_lsp = { enabled = true, inlay_hints = { background = true } },
+-- 					neogit = true,
+-- 					semantic_tokens = true,
+-- 					treesitter_context = true,
+-- 					vimwiki = true,
+-- 					which_key = true,
+-- 				},
+-- 			})
+-- 			-- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
+-- 			vim.api.nvim_command("colorscheme catppuccin-mocha")
+-- 		end,
+-- 	},
+-- }
+---------------------------------------------------------------------------------------------
 return {
-	{
-		"catppuccin/nvim",
-		enabled = false,
-		name = "catppuccin",
-		priority = 1000,
-
-		config = function()
-			require("catppuccin").setup({
-				background = { -- :h background
-					light = "latte",
-					dark = "mocha",
-				},
-				transparent_background = false, -- disables setting the background color.
-				show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
-				term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
-				dim_inactive = {
-					enabled = false, -- dims the background color of inactive window
-					shade = "dark",
-					percentage = 0.15, -- percentage of the shade to apply to the inactive window
-				},
-				no_italic = false, -- Force no italic
-				no_bold = false, -- Force no bold
-				no_underline = false, -- Force no underline
-				styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
-					comments = { "italic" }, -- Change the style of comments
-					conditionals = {},
-					loops = {},
-					functions = {},
-					keywords = {},
-					strings = {},
-					variables = {},
-					numbers = {},
-					booleans = {},
-					properties = {},
-					types = {},
-					operators = {},
-					-- miscs = {}, -- Uncomment to turn off hard-coded styles
-				},
-				color_overrides = {
-					-- all = {
-					-- 	text = "#ffffff",
-					-- },
-					-- mocha = {
-					-- },
-					-- frappe = {
-					-- },
-				},
-				highlight_overrides = {
-					all = function(colors)
-						return {
-							-- xcode default dark
-							["@comment"] = { fg = "#74818d" },
-							["@keyword"] = { fg = "#fd6fa7" },
-							["@string"] = { fg = "#fe7567" },
-						}
-					end,
-					-- mocha = function(mocha)
-					-- 	return {
-					-- 		-- xcode default dark
-					-- 		["@comment"] = { fg = "#74818d" },
-					-- 		["@keyword"] = { fg = "#fd6fa7" },
-					-- 		["@string"] = { fg = "#fe7567" },
-					-- 	}
-					-- end,
-				},
-				custom_highlights = function(colors)
-					return {
-						-- Comment = { fg = "#74818d" },
-						-- Keyword = { fg = "#fd6fa7" },
-						-- Strings = { fg = colors.pink }, --{ fg = "#fe7567" },
-						-- TabLineSel = { bg = colors.pink },
-						-- CmpBorder = { fg = colors.surface2 },
-						-- Pmenu = { bg = colors.none },
-					}
-				end,
-				default_integrations = true,
-
-				integrations = {
-					cmp = true,
-					gitsigns = true,
-					neotree = false,
-					nvimtree = true,
-					treesitter = true,
-					notify = false,
-					mini = {
-						enabled = true,
-						indentscope_color = "",
-					},
-					-- coustomize
-					barbecue = { dim_dirname = true, bold_basename = true, dim_context = false, alt_background = false },
-					hop = true,
-					illuminate = { enabled = true },
-					native_lsp = { enabled = true, inlay_hints = { background = true } },
-					neogit = true,
-					semantic_tokens = true,
-					treesitter_context = true,
-					vimwiki = true,
-					which_key = true,
-				},
-			})
-			-- catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
-			vim.api.nvim_command("colorscheme catppuccin-mocha")
-		end,
-	},
+	-- https://github.com/projekt0n/github-nvim-theme
+	"projekt0n/github-nvim-theme",
+	config = function()
+		vim.api.nvim_command("colorscheme github_dark")
+	end,
 }

@@ -98,7 +98,7 @@ vim.opt.foldlevelstart = 99
 -- vim.lsp.inlay_hint.enable(true)
 
 -- Decrease update time
-vim.opt.updatetime = 250
+vim.opt.updatetime = 200
 
 -- Decrease mapped sequence wait time
 -- Displays which-key popup sooner

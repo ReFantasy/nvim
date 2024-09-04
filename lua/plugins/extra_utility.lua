@@ -27,30 +27,6 @@ return {
 		end,
 	},
 	{
-		-- 对齐竖线
-		-- "lukas-reineke/indent-blankline.nvim",
-		-- main = "ibl",
-		-- opts = {},
-		-- config = function()
-		--     require("ibl").setup({
-		--         scope = {
-		--             enabled = false,
-		--         }
-		--     })
-		-- end,
-		-- 'nvimdev/indentmini.nvim',
-		-- ebabled = false,
-		-- event = 'BufEnter',
-		-- config = function()
-		--     require("indentmini").setup({
-		--         -- char = '|',
-		--         excluse = {},
-		--     }) -- use default config
-		--     vim.cmd.highlight('default link IndentLine Comment')
-		--     vim.cmd.highlight('IndentLineCurrent guifg=#495357')
-		-- end,
-	},
-	{
 		-- 高亮光标所在位置所有相同单词
 		"RRethy/vim-illuminate",
 		config = function()
@@ -133,38 +109,6 @@ return {
 		keys = {
 			{ "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
 		},
-	},
-	{
-		"folke/noice.nvim",
-		enabled = false, --there seems to be an issue when using both this plugin and "s1n7ax/nvim-window-picker"
-		event = "VeryLazy",
-		opts = {
-			-- add any options here
-		},
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-			"rcarriga/nvim-notify",
-		},
-		-- config = function()
-		-- 	require("noice").setup({
-		-- 		lsp = {
-		-- 			-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-		-- 			override = {
-		-- 				["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-		-- 				["vim.lsp.util.stylize_markdown"] = true,
-		-- 				["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
-		-- 			},
-		-- 		},
-		-- 		-- you can enable a preset for easier configuration
-		-- 		presets = {
-		-- 			bottom_search = true, -- use a classic bottom cmdline for search
-		-- 			-- command_palette = true, -- position the cmdline and popupmenu together
-		-- 			long_message_to_split = true, -- long messages will be sent to a split
-		-- 			inc_rename = false, -- enables an input dialog for inc-rename.nvim
-		-- 			lsp_doc_border = false, -- add a border to hover docs and signature help
-		-- 		},
-		-- 	})
-		-- end,
 	},
 	-- markdown
 	{

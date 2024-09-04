@@ -199,12 +199,11 @@ return {
 					--  Most Language Servers support renaming across files, etc.
 					-- map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
 
-
 					-- WARN: This is not Goto Definition, this is Goto Declaration.
 					--  For example, in C this would take you to the header.
 					-- map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
-                    map("ca", vim.lsp.buf.code_action, "[LSP] Code Action", { "n", "x" })
+					map("ca", vim.lsp.buf.code_action, "[LSP] Code Action", { "n", "x" })
 					map("da", vim.diagnostic.open_float, "[LSP] Diagnostics")
 					map("K", vim.lsp.buf.hover, "[LSP] Hover document")
 					map("<leader>rn", vim.lsp.buf.rename, "[LSP] Rename")

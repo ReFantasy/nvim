@@ -81,6 +81,25 @@ return {
 					-- and should return true or false
 					include_surrounding_whitespace = false,
 				},
+				lsp_interop = {
+					enable = true,
+					-- border = "single",
+					floating_preview_opts = {
+						border = "rounded",
+					},
+					peek_definition_code = {
+						-- ["gk"] = "@function.outer",
+						-- ["<leader>dF"] = "@class.outer",
+						["gk"] = {
+							query = "@function.outer",
+							desc = "[Treesitter] Peek definition code (function). Press the shortcut twice to enter the floating window.",
+						},
+						["gK"] = {
+							query = "@class.outer",
+							desc = "[Treesitter] Peek definition code (class). Press the shortcut twice to enter the floating window.",
+						},
+					},
+				},
 			},
 		},
 	},

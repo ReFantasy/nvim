@@ -199,15 +199,15 @@ return {
 					--  Most Language Servers support renaming across files, etc.
 					-- map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
 
-					-- Execute a code action, usually your cursor needs to be on top of an error
-					-- or a suggestion from your LSP for this to activate.
-					-- map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
 
 					-- WARN: This is not Goto Definition, this is Goto Declaration.
 					--  For example, in C this would take you to the header.
 					-- map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
-					map("da", vim.diagnostic.open_float, "[D]iagnostics")
+                    map("ca", vim.lsp.buf.code_action, "[LSP] Code Action", { "n", "x" })
+					map("da", vim.diagnostic.open_float, "[LSP] Diagnostics")
+					map("K", vim.lsp.buf.hover, "[LSP] Hover document")
+					map("<leader>rn", vim.lsp.buf.rename, "[LSP] Rename")
 
 					-- The following two autocommands are used to highlight references of the
 					-- word under your cursor when your cursor rests there for a little while.
@@ -292,6 +292,10 @@ return {
 				},
 			})
 
+			-- style settings
+			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+				border = "rounded", -- 你可以选择 "single", "double", "rounded", "solid", "shadow"
+			})
 			require("lspconfig.ui.windows").default_options.border = "rounded"
 			vim.diagnostic.config({
 				virtual_text = false, -- 关闭在虚拟文本中显示代码诊断信息

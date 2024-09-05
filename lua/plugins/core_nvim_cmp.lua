@@ -73,7 +73,6 @@ return {
 					completion = cmp.config.window.bordered(),
 					documentation = cmp.config.window.bordered(),
 				},
-				completion = { completeopt = "menu,menuone,noinsert" },
 				mapping = cmp.mapping.preset.insert({
 					-- ['<C-b>'] = cmp.mapping.scroll_docs(-4),
 					-- ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -106,26 +105,26 @@ return {
 				},
 				-- Let's configure the item's appearance
 				-- source: https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance
-				-- formatting = {
-				-- 	-- Set order from left to right
-				-- 	-- kind: single letter indicating the type of completion
-				-- 	-- abbr: abbreviation of "word"; when not empty it is used in the menu instead of "word"
-				-- 	-- menu: extra text for the popup menu, displayed after "word" or "abbr"
-				-- 	fields = { "kind", "abbr", "menu" },
-				--
-				-- 	-- customize the appearance of the completion menu
-				-- 	format = function(entry, vim_item)
-				-- 		-- kind icons
-				-- 		-- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-				-- 		vim_item.menu = ({
-				-- 			nvim_lsp = "[Lsp]",
-				-- 			luasnip = "[Luasnip]",
-				-- 			buffer = "[File]",
-				-- 			path = "[Path]",
-				-- 		})[entry.source.name]
-				-- 		return vim_item
-				-- 	end,
-				-- },
+				formatting = {
+					-- Set order from left to right
+					-- kind: single letter indicating the type of completion
+					-- abbr: abbreviation of "word"; when not empty it is used in the menu instead of "word"
+					-- menu: extra text for the popup menu, displayed after "word" or "abbr"
+					fields = { "kind", "abbr", "menu" },
+
+					-- customize the appearance of the completion menu
+					format = function(entry, vim_item)
+						-- kind icons
+						-- vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+						vim_item.menu = ({
+							nvim_lsp = "[Lsp]",
+							luasnip = "[Luasnip]",
+							buffer = "[File]",
+							path = "[Path]",
+						})[entry.source.name]
+						return vim_item
+					end,
+				},
 			})
 
 			-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
@@ -144,7 +143,7 @@ return {
 				}, {
 					{ name = "cmdline" },
 				}),
-				-- matching = { disallow_symbol_nonprefix_matching = false },
+				matching = { disallow_symbol_nonprefix_matching = false },
 			})
 		end,
 	},

@@ -2,6 +2,7 @@ return {
 	-- copilot
 	{
 		"github/copilot.vim",
+        lazy = true,
 	},
 	{
 		branch = "canary",

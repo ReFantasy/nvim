@@ -20,6 +20,7 @@ return {
 	{
 		-- 自动补全括号
 		"windwp/nvim-autopairs",
+		event = "InsertEnter",
 		config = function()
 			require("nvim-autopairs").setup({
 				enable_check_bracket_line = false,
@@ -55,6 +56,7 @@ return {
 	-- },
 	{
 		"s1n7ax/nvim-window-picker",
+		event = "VeryLazy",
 		name = "window-picker",
 		version = "2.*",
 		config = function()

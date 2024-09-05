@@ -38,14 +38,19 @@ return {
 	{
 		"mfussenegger/nvim-dap",
 		enabled = false,
+		lazy = true,
 		keys = keys,
 		dependencies = {
 			{
 				-- "rcarriga/nvim-dap-ui",
 				"mfussenegger/nvim-dap-ui",
+				lazy = true,
 				dependencies = { "nvim-neotest/nvim-nio" },
 			},
-			"theHamsta/nvim-dap-virtual-text",
+			{
+				"theHamsta/nvim-dap-virtual-text",
+				lazy = true,
+			},
 			--"jay-babu/mason-nvim-dap.nvim",
 			-- for python
 			-- 'mfussenegger/nvim-dap-python',

@@ -17,7 +17,7 @@ return {
 			debug = false,
 			-- model = "gpt-4", -- GPT model to use, 'gpt-3.5-turbo', 'gpt-4', or 'gpt-4o'
 			window = {
-				layout = "float",
+				-- layout = "float",
 				relative = "cursor",
 				width = 0.5,
 				height = 0.9,

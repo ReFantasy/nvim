@@ -172,8 +172,8 @@ return {
 	},
 	{
 		"folke/noice.nvim",
-		-- tag = "stable",
-		enabled = false,
+		tag = "stable",
+		-- enabled = false,
 		event = "VeryLazy",
 		opts = {
 			-- add any options here

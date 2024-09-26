@@ -80,6 +80,11 @@ local servers = {
 		filetype = { "markdown", "markdown.mdx" },
 		single_file_support = true,
 	},
+	julials = {
+        -- settings = {
+        --     julia_env_path = "/tmp/julia_env_path"
+        -- },
+    },
 }
 
 return {

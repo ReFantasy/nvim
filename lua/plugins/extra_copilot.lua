@@ -2,10 +2,11 @@ return {
 	-- copilot
 	{
 		"github/copilot.vim",
-        lazy = true,
+        -- lazy = true,
 	},
 	{
 		branch = "canary",
+        lazy = false,
 		"CopilotC-Nvim/CopilotChat.nvim",
 		dependencies = {
 			-- { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim

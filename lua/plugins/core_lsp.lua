@@ -53,7 +53,7 @@ local servers = {
 			"--pch-storage=memory",
 			"--fallback-style=Microsoft",
 			"--pretty",
-			-- "--header-insertion=iwyu", -- 自动插入头文件
+			"--header-insertion=iwyu", -- 自动插入头文件
 			"--header-insertion-decorators", -- 使用修饰符来标记插入的头文件
 			--"-Wno-unused",
 		},

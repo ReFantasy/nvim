@@ -212,7 +212,7 @@ return {
 	},
 	{
 		"karb94/neoscroll.nvim",
-        enabled = false,
+		enabled = false,
 		config = function()
 			require("neoscroll").setup({
 				mappings = { "<C-u>", "<C-d>", "<C-b>", "<C-f>" },
@@ -226,5 +226,9 @@ return {
 				performance_mode = false, -- Disable "Performance Mode" on all buffers.
 			})
 		end,
+	},
+	{
+		"numToStr/Comment.nvim",
+		opts = {},
 	},
 }

@@ -1,7 +1,7 @@
 return {
 	{
 		"catppuccin/nvim",
-		enabled = false,
+		enabled = true,
 		name = "catppuccin",
 		priority = 1000,
 		config = function()
@@ -353,8 +353,12 @@ return {
 					end,
 				},
 			})
+			vim.api.nvim_command("colorscheme catppuccin-mocha")
 
-			vim.api.nvim_command("colorscheme catppuccin-frappe")
+			-- Enable cursor line highlighting
+			vim.opt.cursorline = true
+
+			vim.api.nvim_command("highlight CursorLine guibg=#404040")
 		end,
 	},
 	{
@@ -373,11 +377,11 @@ return {
 		end,
 	},
 	{
-		"ayu-theme/ayu-vim",
+		"Mofiqul/vscode.nvim",
+		enabled = false,
 		priority = 1000,
 		config = function()
-			vim.g.ayucolor = "mirage"
-			vim.cmd.colorscheme("ayu")
+			vim.cmd.colorscheme("vscode")
 		end,
 	},
 }

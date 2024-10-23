@@ -359,16 +359,25 @@ return {
 	},
 	{
 		"sainnhe/everforest",
+		enabled = false,
 		lazy = false,
 		priority = 1000,
 		config = function()
 			-- Optionally configure and load the colorscheme
 			-- directly inside the plugin declaration.
 			vim.g.everforest_enable_italic = true
-            vim.g.everforest_float_style = 'dim'
+			vim.g.everforest_float_style = "dim"
 			-- vim.api.nvim_command("set background=light")
-            -- vim.g.everforest_background = 'soft'
+			-- vim.g.everforest_background = 'soft'
 			vim.cmd.colorscheme("everforest")
+		end,
+	},
+	{
+		"ayu-theme/ayu-vim",
+		priority = 1000,
+		config = function()
+			vim.g.ayucolor = "mirage"
+			vim.cmd.colorscheme("ayu")
 		end,
 	},
 }

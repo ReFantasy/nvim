@@ -32,12 +32,18 @@ local keys = {
 			require("dap").terminate()
 		end,
 	},
+	{
+		"<F2>",
+		function()
+			require("dap").step_out()
+		end,
+	},
 }
 
 return {
 	{
 		"mfussenegger/nvim-dap",
-		enabled = false,
+		enabled = true,
 		lazy = true,
 		keys = keys,
 		dependencies = {

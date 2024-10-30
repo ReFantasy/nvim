@@ -353,11 +353,10 @@ return {
 					end,
 				},
 			})
-			vim.api.nvim_command("colorscheme catppuccin-mocha")
+			vim.api.nvim_command("colorscheme catppuccin-frappe")
 
 			-- Enable cursor line highlighting
 			vim.opt.cursorline = true
-
 			vim.api.nvim_command("highlight CursorLine guibg=#404040")
 		end,
 	},

@@ -37,6 +37,10 @@ vim.schedule(function()
 	vim.opt.clipboard:append("unnamedplus")
 end)
 
+vim.paste = function(lines, phase)
+	vim.api.nvim_put(lines, "c", true, true)
+end
+
 -- 默认新创建窗口在右和下位置
 vim.opt.splitbelow = true -- open new vertical split bottom
 vim.opt.splitright = true -- open new horizontal splits right

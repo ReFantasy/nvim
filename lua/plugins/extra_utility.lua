@@ -27,13 +27,13 @@ return {
 			})
 		end,
 	},
-	-- {
-	-- 	-- 高亮光标所在位置所有相同单词
-	-- 	"RRethy/vim-illuminate",
-	-- 	config = function()
-	-- 		require("illuminate").configure({})
-	-- 	end,
-	-- },
+	{
+		-- 高亮光标所在位置所有相同单词
+		"RRethy/vim-illuminate",
+		config = function()
+			require("illuminate").configure({})
+		end,
+	},
 	{
 		-- 打开文件重新定位到上次的编辑位置
 		"ethanholz/nvim-lastplace",

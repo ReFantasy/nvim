@@ -108,27 +108,33 @@ return {
 			local handlers = {
 				function(server_name)
 					local server = servers[server_name] or {}
-					server.capabilities = vim.tbl_deep_extend("force", {}, capabilities,
-						server.capabilities or {})
+					server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
 					require("lspconfig")[server_name].setup(server)
 				end,
 			}
 
 			require("mason-lspconfig").setup_handlers(handlers)
 
-			-- require("lspconfig.ui.windows").default_options.border = "rounded"
 			vim.api.nvim_create_autocmd("LspAttach", {
 				callback = function(event)
 					local map = function(keys, func, desc, mode)
 						mode = mode or "n"
-						vim.keymap.set(mode, keys, func,
-							{ buffer = event.buf, desc = "LSP: " .. desc })
+						vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 					end
 					map("ca", vim.lsp.buf.code_action, "[LSP] Code Action", { "n", "x" })
 					map("da", vim.diagnostic.open_float, "[LSP] Diagnostics")
 					map("K", vim.lsp.buf.hover, "[LSP] Hover document")
 					map("<leader>rn", vim.lsp.buf.rename, "[LSP] Rename")
 				end,
+			})
+
+			-- float windows style
+			require("lspconfig.ui.windows").default_options.border = "rounded"
+			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+				-- Use a sharp border with `FloatBorder` highlights
+				border = "single", -- "single", "double", "rounded", "solid", "shadow"
+				-- add the title in hover float window
+				-- title = "hover",
 			})
 		end,
 	},

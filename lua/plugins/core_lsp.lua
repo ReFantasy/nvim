@@ -154,6 +154,7 @@ return {
 				-- add the title in hover float window
 				-- title = "hover",
 			})
+			vim.diagnostic.config({ float = { border = "rounded" } })
 		end,
 	},
 }

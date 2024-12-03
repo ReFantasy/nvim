@@ -48,7 +48,6 @@ vim.opt.foldlevelstart = 99
 
 -- 虚拟文本
 vim.lsp.inlay_hint.enable(true)
--- vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 vim.keymap.set("n", "<leader>th", function()
 	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end, { desc = "[T]oggle Inlay [H]ints" })

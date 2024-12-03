@@ -13,17 +13,35 @@ local servers = {
 			},
 		},
 	},
-	pylsp = {
+	-- pylsp = {
+	-- 	settings = {
+	-- 		pylsp = {
+	-- 			plugins = { pycodestyle = { enabled = false } },
+	-- 			hint = { enable = true },
+	-- 			severity = {},
+	-- 		},
+	-- 	},
+	-- },
+	-- https://github.com/microsoft/pyright/blob/main/docs/settings.md
+	pyright = {
 		settings = {
-			pylsp = {
-				plugins = { pycodestyle = { enabled = false } },
-				hint = { enable = true },
-				severity = {},
+			python = {
+				analysis = {
+					autoSearchPaths = true,
+					diagnosticMode = "workspace", --"openFilesOnly",
+					useLibraryCodeForTypes = true,
+					autoImportCompletions = true,
+					typeCheckingMode = "off", -- "off", "basic", "standard", "strict"
+					diagnosticSeverityOverrides = {
+						-- Use the rule name as a key and one of "error," "warning," "information," "true," "false," or "none" as value.
+						reportInvalidTypeForm = "none",
+						reportArgumentType = "none",
+					},
+				},
 			},
+			disableLanguageServices = false,
 		},
 	},
-	-- pyright = {
-	-- },
 	clangd = {
 		cmd = {
 			"clangd",

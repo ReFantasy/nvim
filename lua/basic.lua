@@ -5,10 +5,9 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-vim.opt.number = true     -- show absolute number
+vim.opt.number = true -- show absolute number
 vim.opt.relativenumber = true
 vim.opt.cursorline = true -- highlight cursor line underneath the cursor horizontally
-
 
 -- 默认新创建窗口在右和下位置
 vim.opt.splitbelow = true -- open new vertical split bottom
@@ -16,9 +15,9 @@ vim.opt.splitright = true -- open new horizontal splits right
 
 -- 搜索
 vim.opt.ignorecase = true -- ignore case in searches by default
-vim.opt.smartcase = true  -- but make it case sensitive if an uppercase is entered
-vim.opt.incsearch = true  -- search as characters are entered
-vim.opt.hlsearch = false  -- do not highlight matches
+vim.opt.smartcase = true -- but make it case sensitive if an uppercase is entered
+vim.opt.incsearch = true -- search as characters are entered
+vim.opt.hlsearch = false -- do not highlight matches
 
 -- 外观
 vim.opt.termguicolors = true -- enabl 24-bit RGB color in the TUI
@@ -46,3 +45,10 @@ vim.keymap.set("v", "L", ">gv", opts)
 vim.opt.foldenable = true
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
+
+-- 虚拟文本
+vim.lsp.inlay_hint.enable(true)
+-- vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+vim.keymap.set("n", "<leader>th", function()
+	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end, { desc = "[T]oggle Inlay [H]ints" })

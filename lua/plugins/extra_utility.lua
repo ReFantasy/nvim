@@ -123,7 +123,7 @@ return {
 	-- },
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
-        enabled =  false;
+		enabled = false,
 		dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
 		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
 		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
@@ -131,8 +131,7 @@ return {
 		---@type render.md.UserConfig
 		opts = {},
 		config = function()
-			require("render-markdown").setup({
-			})
+			require("render-markdown").setup({})
 		end,
 	},
 	{ "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
@@ -244,5 +243,16 @@ return {
 	{
 		"numToStr/Comment.nvim",
 		opts = {},
+	},
+	{
+		"akinsho/toggleterm.nvim",
+		tag = "v2.11.0",
+		config = function()
+			require("toggleterm").setup({
+				open_mapping = [[<c-;>]],
+				direction = "float",
+				vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true }),
+			})
+		end,
 	},
 }

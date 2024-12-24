@@ -134,7 +134,17 @@ return {
 			require("render-markdown").setup({})
 		end,
 	},
-	{ "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
+	-- { "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
+	{
+		"OXY2DEV/markview.nvim",
+		lazy = false, -- Recommended
+		-- ft = "markdown" -- If you decide to lazy-load anyway
+
+		dependencies = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-tree/nvim-web-devicons",
+		},
+	},
 	-- Create annotations
 	{
 		"danymat/neogen",

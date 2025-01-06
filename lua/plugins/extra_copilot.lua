@@ -5,7 +5,7 @@ return {
         -- lazy = true,
 	},
 	{
-		branch = "canary",
+		branch = "main",
         lazy = false,
 		"CopilotC-Nvim/CopilotChat.nvim",
 		dependencies = {

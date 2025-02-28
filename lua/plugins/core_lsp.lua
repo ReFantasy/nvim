@@ -1,64 +1,45 @@
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-	-- Use a sharp border with `FloatBorder` highlights
-	border = "rounded", -- "single", "double", "rounded", "solid", "shadow"
-	-- add the title in hover float window
-	title = " Preview ",
-})
-vim.diagnostic.config {
-	virtual_text = {
-		spacing = 4,
-		prefix = '',
-	},
-	float = {
-		severity_sort = true,
-		source = 'if_many',
-		border = 'single',
-	},
-	severity_sort = true,
-	signs = {
-		-- text = {
-		--   [vim.diagnostic.severity.ERROR] = icons.diagnostics.Error,
-		--   [vim.diagnostic.severity.WARN] = icons.diagnostics.Warn,
-		--   [vim.diagnostic.severity.INFO] = icons.diagnostics.Info,
-		--   [vim.diagnostic.severity.HINT] = icons.diagnostics.Hint,
-		-- },
-	},
-}
-
 local servers = {
 	lua_ls = {
+		-- cmd = {...},
+		-- filetypes = { ...},
+		-- capabilities = {},
 		settings = {
 			Lua = {
 				completion = {
 					callSnippet = "Replace",
 				},
+				-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+				-- diagnostics = { disable = { 'missing-fields' } },
 			},
 		},
 	},
-	-- pyright = {
+	-- pylsp = {
 	-- 	settings = {
-	-- 		python = {
-	-- 			analysis = {
-	-- 				autoSearchPaths = true,
-	-- 				diagnosticMode = "workspace", --"openFilesOnly",
-	-- 				useLibraryCodeForTypes = true,
-	-- 				autoImportCompletions = true,
-	-- 				typeCheckingMode = "off", -- "off", "basic", "standard", "strict"
-	-- 				diagnosticSeverityOverrides = {
-	-- 					-- Use the rule name as a key and one of "error," "warning," "information," "true," "false," or "none" as value.
-	-- 					reportInvalidTypeForm = "none",
-	-- 					reportArgumentType = "none",
-	-- 				},
-	-- 			},
+	-- 		pylsp = {
+	-- 			plugins = { pycodestyle = { enabled = false } },
+	-- 			hint = { enable = true },
+	-- 			severity = {},
 	-- 		},
-	-- 		disableLanguageServices = false,
 	-- 	},
 	-- },
-	basedpyright = {
+	-- https://github.com/microsoft/pyright/blob/main/docs/settings.md
+	pyright = {
 		settings = {
-			basedpyright = {
-				analysis = { typeCheckingMode = 'off' },
+			python = {
+				analysis = {
+					autoSearchPaths = true,
+					diagnosticMode = "workspace", --"openFilesOnly",
+					useLibraryCodeForTypes = true,
+					autoImportCompletions = true,
+					typeCheckingMode = "off", -- "off", "basic", "standard", "strict"
+					diagnosticSeverityOverrides = {
+						-- Use the rule name as a key and one of "error," "warning," "information," "true," "false," or "none" as value.
+						reportInvalidTypeForm = "none",
+						reportArgumentType = "none",
+					},
+				},
 			},
+			disableLanguageServices = false,
 		},
 	},
 	clangd = {
@@ -77,10 +58,34 @@ local servers = {
 			--"-Wno-unused",
 		},
 	},
+	-- cmake = {},
+	neocmake = {
+		cmd = { "neocmakelsp", "--stdio" },
+		filetypes = { "cmake" },
+		-- root_dir = function(fname)
+		--     return nvim_lsp.util.find_git_ancestor(fname)
+		-- end,
+		single_file_support = true, -- suggested
+		init_options = {
+			format = {
+				enable = true,
+			},
+			lint = {
+				enable = true,
+			},
+			scan_cmake_in_package = true, -- default is true
+		},
+	},
+	-- marksman = {},
 	marksman = {
 		cmd = { "marksman", "server" },
 		filetype = { "markdown", "markdown.mdx" },
 		single_file_support = true,
+	},
+	julials = {
+		-- settings = {
+		--     julia_env_path = "/tmp/julia_env_path"
+		-- },
 	},
 }
 
@@ -109,7 +114,6 @@ return {
 			})
 			require("mason-lspconfig").setup({
 				ensure_installed = vim.tbl_keys(servers or {}),
-				automatic_installation = false,
 			})
 
 			-- Lsp可以使用luasnip的片段
@@ -122,8 +126,7 @@ return {
 			local handlers = {
 				function(server_name)
 					local server = servers[server_name] or {}
-					server.capabilities = vim.tbl_deep_extend("force", {}, capabilities,
-						server.capabilities or {})
+					server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
 					require("lspconfig")[server_name].setup(server)
 				end,
 			}
@@ -134,8 +137,7 @@ return {
 				callback = function(event)
 					local map = function(keys, func, desc, mode)
 						mode = mode or "n"
-						vim.keymap.set(mode, keys, func,
-							{ buffer = event.buf, desc = "LSP: " .. desc })
+						vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 					end
 					map("ca", vim.lsp.buf.code_action, "[LSP] Code Action", { "n", "x" })
 					map("da", vim.diagnostic.open_float, "[LSP] Diagnostics")
@@ -146,6 +148,13 @@ return {
 
 			-- float windows style
 			require("lspconfig.ui.windows").default_options.border = "rounded"
+			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+				-- Use a sharp border with `FloatBorder` highlights
+				border = "single", -- "single", "double", "rounded", "solid", "shadow"
+				-- add the title in hover float window
+				-- title = "hover",
+			})
+			vim.diagnostic.config({ float = { border = "rounded" } })
 		end,
 	},
 }

@@ -65,7 +65,7 @@ local servers = {
 		cmd = {
 			"clangd",
 			"--background-index",
-			"--clang-tidy",
+			"--clang-tidy=false",
 			"--all-scopes-completion",
 			"--completion-style=detailed",
 			"-j=8",

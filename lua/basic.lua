@@ -13,6 +13,13 @@ vim.opt.cursorline = true -- highlight cursor line underneath the cursor horizon
 vim.opt.splitbelow = true -- open new vertical split bottom
 vim.opt.splitright = true -- open new horizontal splits right
 
+-- Tab
+vim.opt.tabstop = 4      -- number of visual spaces per TAB
+vim.opt.softtabstop = 4  -- number of spacesin tab when editing
+vim.opt.shiftwidth = 4   -- insert 4 spaces on a tab
+vim.opt.expandtab = true -- tabs are spaces, mainly because of python
+vim.opt.autoindent = true
+
 -- 搜索
 vim.opt.ignorecase = true -- ignore case in searches by default
 vim.opt.smartcase = true -- but make it case sensitive if an uppercase is entered

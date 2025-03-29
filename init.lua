@@ -1,9 +1,13 @@
 vim.loader.enable()
 
+vim.api.nvim_command("colorscheme desert")
+
 require("basic")
+
 require("lazy_nvim")
 
-vim.lsp.enable({'clangd'})
+vim.lsp.enable({'clangd', 'luals'})
+vim.o.winborder = 'rounded'
 
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
@@ -13,3 +17,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
   end,
 })
+
+
+
+
+
+
+
+
+
+

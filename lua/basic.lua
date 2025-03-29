@@ -49,12 +49,12 @@ vim.keymap.set("v", "H", "<gv", opts)
 vim.keymap.set("v", "L", ">gv", opts)
 
 -- 代码折叠
-vim.opt.foldenable = true
-vim.opt.foldlevel = 99
-vim.opt.foldlevelstart = 99
+-- vim.opt.foldenable = true
+-- vim.opt.foldlevel = 99
+-- vim.opt.foldlevelstart = 99
 
 -- 虚拟文本
-vim.lsp.inlay_hint.enable(false)
-vim.keymap.set("n", "<leader>th", function()
-	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-end, { desc = "[T]oggle Inlay [H]ints" })
+-- vim.lsp.inlay_hint.enable(false)
+-- vim.keymap.set("n", "<leader>th", function()
+-- 	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+-- end, { desc = "[T]oggle Inlay [H]ints" })

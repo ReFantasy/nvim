@@ -142,7 +142,7 @@ return {
 
             -- float windows style
             require("lspconfig.ui.windows").default_options.border = "rounded" -- nvim<=0.10
-            vim.o.winborder = 'rounded'                                        --nvim>0.10
+            -- vim.o.winborder = 'rounded'                                        --nvim>0.10
         end,
     },
 }

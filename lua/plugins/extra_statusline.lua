@@ -219,6 +219,7 @@ ins_right({
 })
 ins_right({
 	"filename",
+    path = 2,
 	cond = conditions.buffer_not_empty,
 	color = { fg = colors.magenta, gui = "bold" },
 })

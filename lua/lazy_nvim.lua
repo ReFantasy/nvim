@@ -29,4 +29,4 @@ require("lazy").setup({
 	-- checker = { enabled = true },
 })
 
-vim.lsp.enable({'lua_ls'})
+vim.lsp.enable({'lua_ls', 'clangd'})

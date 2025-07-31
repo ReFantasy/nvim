@@ -1,25 +1,52 @@
-local get_os_icon = function()
+local get_os = function()
   local separator = package.config.sub(1, 1)
-
   if separator == "\\" then
-    return require("nvim-web-devicons").get_icon("windows", "")
+    -- return require("nvim-web-devicons").get_icon("windows", "")
+    return ""
   else
     local handle = io.popen("uname -a")
     if handle == nil then
-      return require("nvim-web-devicons").get_icon("windows", "")
+      -- return require("nvim-web-devicons").get_icon("windows", "")
+      return ""
     end
     local result = handle:read("*a")
     handle:close()
     if result:find("Debian") then
-      return require("nvim-web-devicons").get_icon("Debian", "")
+      -- return require("nvim-web-devicons").get_icon("Debian", "")
+      return ""
     elseif result:find("Ubuntu") then
-      return require("nvim-web-devicons").get_icon("ubuntu", "")
+      -- return require("nvim-web-devicons").get_icon("ubuntu", "")
+      return "󰕈"
     elseif result:find("Darwin") then
-      return require("nvim-web-devicons").get_icon("apple", "")
+      -- return require("nvim-web-devicons").get_icon("apple", "")
+      return ""
     else
-      return require("nvim-web-devicons").get_icon("linux", "")
+      -- return require("nvim-web-devicons").get_icon("linux", "")
+      return ""
     end
   end
+
+  -- 类Unix系统通常有 'OSTYPE' 或 'TERM' 变量
+  -- local ostype = os.getenv("OSTYPE") or ""
+  -- if ostype:find("linux") then
+  --   return "linux"
+  -- elseif ostype:find("darwin") then
+  --   return "macos"
+  -- elseif os.getenv("OS") == "Windows_NT" then
+  --   return "windows"
+  -- else
+  --   -- 备用检测方法
+  --   local handle = io.popen("uname -s 2>/dev/null || echo Unknown")
+  --   local uname = handle:read("*a"):gsub("%s+", ""):lower()
+  --   handle:close()
+  --   if uname:find("linux") then
+  --     return "linux"
+  --   elseif uname:find("darwin") then
+  --     return "macos"
+  --   else
+  --     return "unknown"
+  --   end
+  -- end
 end
 
 local colors = {
@@ -107,8 +134,8 @@ ins_left({
 ins_left({
   -- mode component
   function()
-    local icon, _ = get_os_icon()
-    return icon
+    local os_icon = get_os()
+    return os_icon
   end,
   color = function()
     -- auto change color according to neovims mode
@@ -116,13 +143,13 @@ ins_left({
       n = colors.red,
       i = colors.green,
       v = colors.blue,
-      [""] = colors.blue,
+      -- [""] = colors.blue,
       V = colors.blue,
       c = colors.magenta,
       no = colors.red,
       s = colors.orange,
       S = colors.orange,
-      [""] = colors.orange,
+      -- [""] = colors.orange,
       ic = colors.yellow,
       R = colors.violet,
       Rv = colors.violet,
@@ -244,15 +271,18 @@ ins_right({
 })
 
 return {
-  "nvim-lualine/lualine.nvim",
-  -- enabled = false,
-  dependencies = { "nvim-tree/nvim-web-devicons" },
-  config = function()
-    local status_ok, lualine = pcall(require, "lualine")
-    if not status_ok then
-      return
-    end
+  -- { "nvim-tree/nvim-web-devicons", opts = {} },
+  {
+    "nvim-lualine/lualine.nvim",
+    -- enabled = false,
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      local status_ok, lualine = pcall(require, "lualine")
+      if not status_ok then
+        return
+      end
 
-    lualine.setup(config)
-  end,
+      lualine.setup(config)
+    end,
+  },
 }

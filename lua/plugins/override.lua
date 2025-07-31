@@ -1,11 +1,6 @@
 return {
   { "akinsho/bufferline.nvim", enabled = false },
-  -- {
-  --   "LazyVim/LazyVim",
-  --   keys = {
-  --     { "<leader>l", mode = { "n" }, false },
-  --   },
-  -- },
+  { "folke/noice.nvim", enabled = false },
   {
     "saghen/blink.cmp",
     opts = { keymap = {

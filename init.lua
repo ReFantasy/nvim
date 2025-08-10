@@ -6,6 +6,8 @@ vim.o.winborder = 'rounded'
 vim.api.nvim_command("colorscheme default")
 
 require("config.basic")
+
+-- Lsp should be install with system package manager or the lazy plugin
 require("config.lsp_config")
 
 --------------------------------------------------------------------------------

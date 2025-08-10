@@ -1,5 +1,6 @@
 -- 参数为配置文件名
 vim.lsp.enable({'lua_ls'})
+vim.lsp.enable({'basedpyright'})
 vim.lsp.enable({'clangd'})
 
 vim.api.nvim_create_autocmd('LspAttach', {

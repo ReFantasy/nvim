@@ -82,6 +82,14 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
+    keys = {
+      -- add a keymap
+      {
+        "<leader>rn",
+        vim.lsp.buf.rename,
+        desc = "Find Plugin File",
+      },
+    },
     ---@class PluginLspOpts
     opts = {
       ---@type lspconfig.options

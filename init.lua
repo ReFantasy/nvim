@@ -3,7 +3,7 @@
 vim.loader.enable()
 
 vim.o.winborder = 'rounded'
-vim.api.nvim_command("colorscheme desert")
+vim.api.nvim_command("colorscheme default")
 
 require("config.basic")
 require("config.lsp_config")

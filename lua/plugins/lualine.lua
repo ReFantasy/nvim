@@ -22,7 +22,8 @@ local get_os = function()
       return ""
     else
       -- return require("nvim-web-devicons").get_icon("linux", "")
-      return ""
+      -- print(result)
+      return ""
     end
   end
 

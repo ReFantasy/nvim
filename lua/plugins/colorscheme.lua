@@ -112,9 +112,9 @@ return {
               NeoTreeGitUntracked = { fg = colors.green },
               NeoTreeIndent = { fg = colors.surface1 },
 
-              -- NeoTreeNormal = { bg = colors.mantle },
-              -- NeoTreeNormalNC = { bg = colors.mantle },
-              NeoTreeNormal = { bg = colors.base },
+              NeoTreeNormal = { bg = colors.mantle },
+              NeoTreeNormalNC = { bg = colors.mantle },
+              -- NeoTreeNormal = { bg = colors.base },
 
               NeoTreeRootName = { fg = colors.subtext1, style = { "bold" } },
               NeoTreeTabActive = { fg = colors.text, bg = colors.mantle },

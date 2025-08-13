@@ -4,3 +4,4 @@
 
 vim.g.snacks_animate = false
 vim.o.winborder = "rounded"
+vim.g.lazyvim_picker = "fzf"

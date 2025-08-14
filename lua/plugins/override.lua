@@ -39,10 +39,6 @@ return {
   {
     "stevearc/conform.nvim",
     keys = {
-      -- disable the keymap to grep files
-      -- { "<leader>cf", mode = { "n" }, false },
-
-      -- add a keymap to browse plugin files
       {
         "<leader>fm",
         function()
@@ -127,6 +123,12 @@ return {
     opts = {
       close_if_last_window = true,
       enable_git_status = true,
+    },
+  },
+  {
+    "mason-org/mason.nvim",
+    opts = {
+      ui = { border = "rounded" },
     },
   },
 }

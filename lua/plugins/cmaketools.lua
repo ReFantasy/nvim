@@ -9,25 +9,28 @@ return {
         cmake_command = "cmake", -- this is used to specify cmake command path
         ctest_command = "ctest", -- this is used to specify ctest command path
         cmake_use_preset = true,
-        cmake_regenerate_on_save = false, -- auto generate when save CMakeLists.txt
-        cmake_generate_options = { "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON" }, -- this will be passed when invoke `CMakeGenerate`
-        cmake_build_options = { "-j8" }, -- this will be passed when invoke `CMakeBuild`
+        cmake_regenerate_on_save = true, -- auto generate when save CMakeLists.txt
+        cmake_generate_options = { "-DCMAKE_EXPORT_COMPILE_COMMANDS=1" }, -- this will be passed when invoke `CMakeGenerate`
+        cmake_build_options = {}, -- this will be passed when invoke `CMakeBuild`
         -- support macro expansion:
         --       ${kit}
         --       ${kitGenerator}
         --       ${variant:xx}
-
         cmake_build_directory = function()
           if osys.iswin32 then
             return "build\\${variant:buildType}"
           end
           return "build/${variant:buildType}"
         end, -- this is used to specify generate directory for cmake, allows macro expansion, can be a string or a function returning the string, relative to cwd.
-
-        -- cmake_build_directory = "build",
-
-        cmake_soft_link_compile_commands = false, -- this will automatically make a soft link from compile commands file to project root dir
-        cmake_compile_commands_from_lsp = true, -- this will automatically set compile commands file location using lsp, to use it, please set `cmake_soft_link_compile_commands` to false
+        cmake_compile_commands_options = {
+          action = "lsp", -- available options: soft_link, copy, lsp, none
+          -- soft_link: this will automatically make a soft link from compile commands file to target
+          -- copy:      this will automatically copy compile commands file to target
+          -- lsp:       this will automatically set compile commands file location using lsp
+          -- none:      this will make this option ignored
+          -- target = vim.loop.cwd(), -- path to directory, this is used only if action == "soft_link" or action == "copy"
+          target = vim.fn.getcwd(),
+        },
         cmake_kits_path = nil, -- this is used to specify global cmake kits path, see CMakeKits for detailed usage
         cmake_variants_message = {
           short = { show = true }, -- whether to show short message
@@ -63,7 +66,7 @@ return {
                 strategy = {
                   "toggleterm",
                   direction = "horizontal",
-                  autos_croll = true,
+                  auto_scroll = true,
                   quit_on_exit = "success",
                 },
               }, -- options to pass into the `overseer.new_task` command
@@ -81,6 +84,7 @@ return {
               single_terminal_per_instance = true, -- Single viewport, multiple windows
               single_terminal_per_tab = true, -- Single viewport per tab
               keep_terminal_static_location = true, -- Static location of the viewport if avialable
+              auto_resize = true, -- Resize the terminal if it already exists
 
               -- Running Tasks
               start_insert = false, -- If you want to enter terminal with :startinsert upon using :CMakeRun
@@ -127,6 +131,7 @@ return {
               single_terminal_per_instance = true, -- Single viewport, multiple windows
               single_terminal_per_tab = true, -- Single viewport per tab
               keep_terminal_static_location = true, -- Static location of the viewport if avialable
+              auto_resize = true, -- Resize the terminal if it already exists
 
               -- Running Tasks
               start_insert = false, -- If you want to enter terminal with :startinsert upon using :CMakeRun
@@ -142,6 +147,7 @@ return {
           refresh_rate_ms = 100, -- how often to iterate icons
         },
         cmake_virtual_text_support = true, -- Show the target related to current file using virtual text (at right corner)
+        cmake_use_scratch_buffer = false, -- A buffer that shows what cmake-tools has done
       })
     end,
   },

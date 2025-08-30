@@ -17,3 +17,9 @@ vim.keymap.set("n", "<S-Right>", ":vertical resize +2<CR>", opts)
 -- 分屏
 vim.keymap.set("n", "|", "<cmd>vsplit<CR>", opts)
 vim.keymap.set("n", "\\", "<cmd>split<CR>", opts)
+
+-- 虚拟文本
+vim.lsp.inlay_hint.enable(false)
+vim.keymap.set("n", "<leader>th", function()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end, { desc = "[T]oggle Inlay [H]ints" })

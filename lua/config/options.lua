@@ -5,10 +5,10 @@
 -- In case you don't want to use `:LazyExtras`,
 -- then you need to set the option below.
 vim.g.lazyvim_picker = "telescope"
+-- vim.g.lazyvim_picker = "fzf"
 
 vim.g.snacks_animate = false
 vim.o.winborder = "rounded"
-vim.g.lazyvim_picker = "fzf"
 
 -- Tab
 vim.opt.tabstop = 4 -- number of visual spaces per TAB

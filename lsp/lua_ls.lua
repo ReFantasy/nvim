@@ -10,5 +10,5 @@ return {
     'selene.toml',
     'selene.yml',
     '.git',
-  },
+  }
 }

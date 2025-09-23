@@ -16,3 +16,5 @@ vim.keymap.set("n", "|", "<cmd>vsplit<CR>")
 vim.keymap.set("n", "\\", "<cmd>split<CR>")
 
 vim.lsp.enable 'lua_ls'
+vim.lsp.enable 'clangd'
+

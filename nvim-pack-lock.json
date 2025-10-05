@@ -1,0 +1,12 @@
+{
+  "plugins": {
+    "blink.cmp": {
+      "rev": "a999ddc",
+      "src": "https://github.com/saghen/blink.cmp"
+    },
+    "mason.nvim": {
+      "rev": "ad7146a",
+      "src": "https://github.com/mason-org/mason.nvim"
+    }
+  }
+}

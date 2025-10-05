@@ -7,6 +7,14 @@
     "mason.nvim": {
       "rev": "ad7146a",
       "src": "https://github.com/mason-org/mason.nvim"
-    }
+    },
+    "neo-tree.nvim": {
+      "rev": "9130e58",
+      "src": "https://github.com/nvim-neo-tree/neo-tree.nvim",
+      "version": "3.0.0 - 4.0.0"
+    },
+    "nui.nvim": [],
+    "nvim-web-devicons": [],
+    "plenary.nvim": []
   }
 }

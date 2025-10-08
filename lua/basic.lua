@@ -1,11 +1,11 @@
 vim.g.mapleader = " "
-vim.o.winborder = 'rounded' -- rounded windows 
+vim.o.winborder = 'rounded'  -- rounded windows
 
-vim.opt.number = true -- show absolute number
+vim.opt.number = true        -- show absolute number
 -- vim.opt.relativenumber = true
-vim.opt.cursorline = true -- 高亮光标行
+vim.opt.cursorline = true    -- 高亮光标行
 vim.opt.termguicolors = true -- enabl 24-bit RGB color in the TUI
-vim.opt.signcolumn = "no" -- yes or no
+vim.opt.signcolumn = "no"    -- yes or no
 
 -- 分屏
 vim.keymap.set("n", "|", "<cmd>vsplit<CR>")

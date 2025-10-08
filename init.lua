@@ -9,6 +9,9 @@ require("plugins.mason")
 require("plugins.blink")
 require("plugins.nvim-window-picker")
 require("plugins.neo-tree")
+require("plugins.colorscheme")
+require("plugins.treesitter")
+vim.api.nvim_command("colorscheme catppuccin-frappe")
 
 -- keymap
 vim.keymap.set({ "n", "v" }, "<C-h>", "<C-w>h")

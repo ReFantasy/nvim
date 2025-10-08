@@ -21,6 +21,18 @@
       "rev": "de74099",
       "src": "https://github.com/MunifTanjim/nui.nvim"
     },
+    "nvim": {
+      "rev": "e79d09f",
+      "src": "https://github.com/catppuccin/nvim"
+    },
+    "nvim-treesitter": {
+      "rev": "42fc28ba",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "nvim-treesitter-textobjects": {
+      "rev": "71385f1",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
+    },
     "nvim-web-devicons": {
       "rev": "b8221e4",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"

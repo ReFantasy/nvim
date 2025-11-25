@@ -65,14 +65,6 @@ return {
 				indent = {
 					enable = true,
 				},
-				-- textobjects = {
-				-- 	lsp_interop = {
-				-- 		enable = true,
-				-- 		peek_definition_code = {
-				-- 			["<leader>df"] = "@function.outer", -- 查看函数定义上下文
-				-- 		},
-				-- 	},
-				-- },
 			})
 		end,
 	},

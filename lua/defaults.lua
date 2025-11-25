@@ -23,8 +23,4 @@ vim.opt.hlsearch = false -- do not highlight matches
 
 vim.opt.signcolumn = "yes"
 
-vim.o.winborder = 'rounded'  -- rounded windows
-
--- vim.cmd.colorscheme("desert")
--- vim.cmd.colorscheme("elflord")
-vim.cmd.colorscheme("industry")
+vim.o.winborder = "rounded" -- rounded windows

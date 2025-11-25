@@ -1,7 +1,3 @@
-vim.loader.enable()
-
-require("basic")
+require("defaults")
 require("lazy_nvim")
-
--- my plugin
--- vim.opt.rtp:prepend("$HOME/code/neovim_project/example/")
+require("keymaps")

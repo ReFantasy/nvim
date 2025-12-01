@@ -14,20 +14,20 @@ return {
       -- model = "gpt-4.1", -- AI model to use
       model = "gpt-5", -- AI model to use
       language = "Chinese", -- "English", -- Default language to use for answers
-      prompts = {
-        MyCustomPrompt = {
-          prompt = "Explain how it works.",
-          system_prompt = "You are very good at explaining stuff",
-          mapping = "<leader>ccmc",
-          description = "My custom prompt description",
-        },
-        Yarrr = {
-          system_prompt = "You are fascinated by pirates, so please respond in pirate speak.",
-        },
-        NiceInstructions = {
-          system_prompt = "You are a nice coding tutor, so please respond in a friendly and helpful manner.",
-        },
-      },
+      -- prompts = {
+      --   MyCustomPrompt = {
+      --     prompt = "Explain how it works.",
+      --     system_prompt = "You are very good at explaining stuff",
+      --     mapping = "<leader>ccmc",
+      --     description = "My custom prompt description",
+      --   },
+      --   Yarrr = {
+      --     system_prompt = "You are fascinated by pirates, so please respond in pirate speak.",
+      --   },
+      --   NiceInstructions = {
+      --     system_prompt = "You are a nice coding tutor, so please respond in a friendly and helpful manner.",
+      --   },
+      -- },
     },
   },
 }

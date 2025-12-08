@@ -105,7 +105,7 @@ return {
             "--clang-tidy=false",
             "--all-scopes-completion",
             "--completion-style=detailed",
-            "-j=8",
+            -- "-j=8",
             "--pch-storage=memory",
             "--fallback-style=Microsoft",
             "--pretty",

@@ -35,20 +35,6 @@ return {
       },
     },
   },
-
-  {
-    "stevearc/conform.nvim",
-    keys = {
-      {
-        "<leader>fm",
-        function()
-          require("conform").format({ async = true, lsp_format = "fallback" })
-        end,
-        desc = "Format File",
-      },
-    },
-  },
-
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {

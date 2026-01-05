@@ -1,31 +1,48 @@
 local get_os = function()
-  local separator = package.config.sub(1, 1)
-  if separator == "\\" then
-    -- return require("nvim-web-devicons").get_icon("windows", "")
-    return ""
+  local uname = io.popen("uname -a"):read("*a"):lower()
+
+  local type_icon = ""
+  if uname:find("linux") then
+    type_icon = ""
+  elseif uname:find("darwin") then
+    -- return "MacOS"
+    type_icon = ""
   else
-    local handle = io.popen("uname -a")
-    if handle == nil then
-      -- return require("nvim-web-devicons").get_icon("windows", "")
-      return ""
-    end
-    local result = handle:read("*a")
-    handle:close()
-    if result:find("Debian") then
-      -- return require("nvim-web-devicons").get_icon("Debian", "")
-      return ""
-    elseif result:find("Ubuntu") then
-      -- return require("nvim-web-devicons").get_icon("ubuntu", "")
-      return "󰕈"
-    elseif result:find("Darwin") then
-      -- return require("nvim-web-devicons").get_icon("apple", "")
-      return ""
-    else
-      -- return require("nvim-web-devicons").get_icon("linux", "")
-      -- print(result)
-      return ""
-    end
+    type_icon = ""
   end
+  if uname:find("debian") then
+    type_icon = ""
+  elseif uname:find("ubuntu") then
+    type_icon = "󰕈"
+  end
+  return type_icon
+
+  -- local separator = package.config.sub(1, 1)
+  -- if separator == "\\" then
+  --   -- return require("nvim-web-devicons").get_icon("windows", "")
+  --   return ""
+  -- else
+  --   local handle = io.popen("uname -a")
+  --   if handle == nil then
+  --     -- return require("nvim-web-devicons").get_icon("windows", "")
+  --     return ""
+  --   end
+  --   local result = handle:read("*a")
+  --   handle:close()
+  --   if result:find("Debian") then
+  --     -- return require("nvim-web-devicons").get_icon("Debian", "")
+  --     return ""
+  --   elseif result:find("Ubuntu") then
+  --     -- return require("nvim-web-devicons").get_icon("ubuntu", "")
+  --     return "󰕈"
+  --   elseif result:find("Darwin") then
+  --     -- return require("nvim-web-devicons").get_icon("apple", "")
+  --     return ""
+  --   else
+  --     -- return require("nvim-web-devicons").get_icon("linux", "")
+  --     -- print(result)
+  --     return ""
+  --   end
 
   -- 类Unix系统通常有 'OSTYPE' 或 'TERM' 变量
   -- local ostype = os.getenv("OSTYPE") or ""

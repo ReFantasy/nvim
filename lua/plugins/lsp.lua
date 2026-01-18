@@ -12,7 +12,7 @@ return {
                     -- Change an existing keymap
                     -- { "K", "<cmd>echo 'custom hover'<cr>", desc = "Custom Hover" },
                     -- Disable a keymap
-                    -- { "gd", false },
+                    { "<leader>cR", false },
                     {
                         "<leader>rn",
                         vim.lsp.buf.rename,

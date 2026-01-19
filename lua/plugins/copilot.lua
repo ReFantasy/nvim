@@ -13,6 +13,7 @@ return {
       -- See Configuration section for options
       -- model = "gpt-4.1", -- AI model to use
       -- model = "gpt-5", -- AI model to use
+      model = "gpt-5.2-codex", -- AI model to use
       language = "Chinese", -- "English", -- Default language to use for answers
       -- prompts = {
       --   MyCustomPrompt = {

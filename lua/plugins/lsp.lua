@@ -10,7 +10,7 @@ return {
           -- Add a keymap
           -- { "H", "<cmd>echo 'hello'<cr>", desc = "Say Hello" },
           -- Change an existing keymap
-          -- { "K", "<cmd>echo 'custom hover'<cr>", desc = "Custom Hover" },
+          { "K", vim.lsp.buf.hover, desc = "Hover" },
           -- Disable a keymap
           { "<leader>cR", false },
           {

@@ -18,6 +18,19 @@ return {
             ]],
                 },
             },
+            picker = {
+                sources = {
+                    explorer = {
+                        -- your explorer picker configuration comes here
+                        -- or leave it empty to use the default settings
+                        layout = {
+                            preset = "sidebar",
+                            preview = false,
+                            auto_hide = { "input" },
+                        },
+                    }
+                }
+            }
         },
     },
     {

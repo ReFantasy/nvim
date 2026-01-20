@@ -39,8 +39,8 @@ return {
           "--fallback-style=Microsoft",
           "--pretty",
           -- "--header-insertion=iwyu", -- 自动插入头文件iwyu
+          -- "--header-insertion-decorators", -- 使用修饰符来标记插入的头文件
           "--header-insertion=never",
-          "--header-insertion-decorators", -- 使用修饰符来标记插入的头文件
           --"-Wno-unused",
         },
       },

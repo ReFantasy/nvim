@@ -20,4 +20,5 @@ vim.keymap.set("n", "\\", "<cmd>split<CR>")
 --   print("okkkkkkkkkkkkkkkkkk")
 -- end)
 
-vim.keymap.set({ "n", "i", "v" }, "<leader>qa", "<cmd>wa<CR><cmd>qa<CR>", { desc = "save all and quit vim" })
+-- vim.keymap.set({ "n", "i", "v" }, "<leader>qa", "<cmd>wa<CR><cmd>qa<CR>", { desc = "save all and quit vim" })
+vim.keymap.set({ "n", "i", "v" }, "<leader>qq", "<cmd>wa<CR><cmd>qa<CR>", { desc = "save all and quit vim" })

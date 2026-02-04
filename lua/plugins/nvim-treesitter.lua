@@ -20,6 +20,16 @@ return {
             -- vim.g.no_ruby_maps = true
             -- vim.g.no_rust_maps = true
             -- vim.g.no_go_maps = true
+            require("nvim-treesitter-textobjects").setup {
+                textobjects = {
+                    lsp_interop={
+                        enable=true,
+                        peek_definition_code ={
+                            ["<leader>df"] = "@function.outer"
+                        }
+                    }
+                }
+            }
         end,
         config = function()
             -- require("nvim-treesitter-textobjects").setup {

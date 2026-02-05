@@ -22,7 +22,7 @@ return {
       -- vim.g.no_go_maps = true
     end,
     config = function()
-      require("nvim-treesitter-textobjects").setup({})
+      -- require("nvim-treesitter-textobjects").setup({})
     end,
   },
 }

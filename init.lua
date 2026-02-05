@@ -1,3 +1,2 @@
-require("defaults")
-require("lazy_nvim")
-require("keymaps")
+-- do :Lazy restore, to update all your plugins to the version from the lockfile.
+require("config.lazy")

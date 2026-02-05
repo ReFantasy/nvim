@@ -14,5 +14,4 @@ vim.opt.shiftwidth = 4 -- insert 4 spaces on a tab
 vim.opt.expandtab = true -- tabs are spaces, mainly because of python
 vim.opt.autoindent = true
 
-
 -- vim.cmd("colorscheme desert")

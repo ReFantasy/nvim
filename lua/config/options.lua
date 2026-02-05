@@ -39,16 +39,16 @@ vim.schedule(function()
 	vim.opt.clipboard:append("unnamedplus")
 end)
 
--- 默认新创建窗口在右和下位置
-vim.opt.splitbelow = true -- open new vertical split bottom
-vim.opt.splitright = true -- open new horizontal splits right
-
--- 搜索
-vim.opt.ignorecase = true -- ignore case in searches by default
-vim.opt.smartcase = true -- but make it case sensitive if an uppercase is entered
-vim.opt.incsearch = true -- search as characters are entered
-vim.opt.hlsearch = false -- do not highlight matches
-
--- 外观
-vim.opt.termguicolors = true -- enabl 24-bit RGB color in the TUI
-vim.opt.signcolumn = "yes"
+-- -- 默认新创建窗口在右和下位置
+-- vim.opt.splitbelow = true -- open new vertical split bottom
+-- vim.opt.splitright = true -- open new horizontal splits right
+--
+-- -- 搜索
+-- vim.opt.ignorecase = true -- ignore case in searches by default
+-- vim.opt.smartcase = true -- but make it case sensitive if an uppercase is entered
+-- vim.opt.incsearch = true -- search as characters are entered
+-- vim.opt.hlsearch = false -- do not highlight matches
+--
+-- -- 外观
+-- vim.opt.termguicolors = true -- enabl 24-bit RGB color in the TUI
+-- vim.opt.signcolumn = "yes"

@@ -4,9 +4,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
--- 全局圆角边框
-vim.o.winborder = "rounded"
-
 -- Tab
 vim.opt.tabstop = 4 -- number of visual spaces per TAB
 vim.opt.softtabstop = 4 -- number of spacesin tab when editing
@@ -52,3 +49,6 @@ end)
 -- -- 外观
 -- vim.opt.termguicolors = true -- enabl 24-bit RGB color in the TUI
 -- vim.opt.signcolumn = "yes"
+
+-- 全局圆角边框
+vim.o.winborder = "rounded"

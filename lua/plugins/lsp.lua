@@ -64,9 +64,9 @@ return {
 					-- or a suggestion from your LSP for this to activate.
 					-- map('<leader>ra', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
 					-- map('<leader>rD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-					map("K", function()
-						vim.lsp.buf.hover({ border = "rounded" })
-					end, "[H]over")
+					-- map("K", function()
+					-- 	vim.lsp.buf.hover({ border = true })
+					-- end, "[H]over")
 
 					-- The following two autocommands are used to highlight references of the
 					-- word under your cursor when your cursor rests there for a little while.

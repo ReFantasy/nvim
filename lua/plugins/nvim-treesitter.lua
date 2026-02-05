@@ -30,6 +30,7 @@ return {
 	end,
 }
 
+-- master branch
 -- return {
 --     "nvim-treesitter/nvim-treesitter",
 --     branch = "master",

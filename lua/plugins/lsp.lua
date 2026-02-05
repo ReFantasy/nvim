@@ -28,21 +28,6 @@ local servers_config = {
 
 return {
 	{
-		"saghen/blink.cmp",
-		-- use a release tag to download pre-built binaries
-		version = "1.*",
-		-- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
-		-- build = 'cargo build --release',
-		-- If you use nix, you can build from source using latest nightly rust with:
-		-- build = 'nix run .#build-plugin',
-		opts = {
-			keymap = {
-				preset = "enter",
-				["<Tab>"] = { "select_next", "fallback" },
-			},
-		},
-	},
-	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			-- Automatically install LSPs and related tools to stdpath for Neovim
@@ -56,7 +41,7 @@ return {
 			{ "j-hui/fidget.nvim", opts = {} },
 
 			-- Allows extra capabilities provided by blink.cmp
-			-- 'saghen/blink.cmp',
+			"saghen/blink.cmp",
 		},
 		config = function()
 			--  This function gets run when an LSP attaches to a particular buffer.

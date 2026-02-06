@@ -15,6 +15,7 @@ return {
 		scroll = { enabled = false }, --平滑翻页
 		statuscolumn = { enabled = true }, --美观的状态列
 		words = { enabled = true }, --自动显示 LSP 引用并快速在它们之间导航
+		terminal = { enabled = true },
 
 		picker = {
 			enabled = true,

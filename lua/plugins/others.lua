@@ -124,4 +124,14 @@ return {
 			vim.keymap.set("n", "<leader>pw", pick_win, { desc = "[C] Pick Window" })
 		end,
 	},
+	{
+		-- 自动补全括号
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = function()
+			require("nvim-autopairs").setup({
+				enable_check_bracket_line = false,
+			})
+		end,
+	},
 }

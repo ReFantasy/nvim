@@ -47,8 +47,8 @@ end)
 -- vim.opt.hlsearch = false -- do not highlight matches
 --
 -- -- 外观
--- vim.opt.termguicolors = true -- enabl 24-bit RGB color in the TUI
--- vim.opt.signcolumn = "yes"
+vim.opt.termguicolors = true -- enabl 24-bit RGB color in the TUI
+vim.opt.signcolumn = "yes"
 
 -- 全局圆角边框
 vim.o.winborder = "rounded"

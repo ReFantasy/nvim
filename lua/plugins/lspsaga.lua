@@ -9,7 +9,7 @@ return {
 		},
 		config = function()
 			require("lspsaga").setup({
-				LightBulb = { enabled = true }, -- Automatically show lightbulbs when the current line has available code actions.
+				LightBulb = { enabled = false }, -- Automatically show lightbulbs when the current line has available code actions.
 			})
 		end,
 		dependencies = {

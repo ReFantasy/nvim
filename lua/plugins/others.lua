@@ -180,4 +180,8 @@ return {
 			})
 		end,
 	},
+	{
+		"LazyVim/LazyVim",
+		enabled = false,
+	},
 }

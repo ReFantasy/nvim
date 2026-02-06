@@ -2,6 +2,7 @@ return {
 	{
 		"nvimdev/lspsaga.nvim",
 		enabled = true,
+		event = "VeryLazy",
 		keys = {
 			{ "K", "<cmd>Lspsaga hover_doc<cr>", desc = "Lspsaga hover" },
 			{ "gK", "<cmd>Lspsaga peek_definition<cr>", desc = "Lspsaga hpeek_definition" },

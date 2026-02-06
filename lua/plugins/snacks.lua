@@ -21,7 +21,7 @@ return {
 			enabled = true,
 			sources = {
 				explorer = {
-					auto_close = true,
+					-- auto_close = true,
 					layout = {
 						preset = "sidebar",
 						preview = false,

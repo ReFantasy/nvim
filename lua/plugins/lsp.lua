@@ -42,8 +42,17 @@ return {
 
 			-- Allows extra capabilities provided by blink.cmp
 			"saghen/blink.cmp",
+
+			-- telescope for quick jump
+			"nvim-telescope/telescope.nvim",
 		},
 		config = function()
+			-- 先取消默认LSP keymap
+			vim.keymap.del("n", "gra")
+			vim.keymap.del("n", "gri")
+			vim.keymap.del("n", "grn")
+			vim.keymap.del("n", "grr")
+			vim.keymap.del("n", "grt")
 			--  This function gets run when an LSP attaches to a particular buffer.
 			--    That is to say, every time a new file is opened that is associated with
 			--    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
@@ -57,16 +66,13 @@ return {
 						mode = mode or "n"
 						vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 					end
-
 					-- 定义快捷键
 					-- map("<leader>rn", vim.lsp.buf.rename, '[R]e[n]ame')
 					-- Execute a code action, usually your cursor needs to be on top of an error
 					-- or a suggestion from your LSP for this to activate.
-					-- map('<leader>ra', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
-					-- map('<leader>rD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
-					-- map("K", function()
-					-- 	vim.lsp.buf.hover({ border = true })
-					-- end, "[H]over")
+					map("ga", vim.lsp.buf.code_action, "[L]sp Code Action", { "n", "x" })
+					map("gn", vim.lsp.buf.rename, "[L]sp Code Rename", { "n", "x" })
+					map("gD", vim.lsp.buf.declaration, "[L]sp [D]eclaration")
 
 					-- The following two autocommands are used to highlight references of the
 					-- word under your cursor when your cursor rests there for a little while.
@@ -134,6 +140,14 @@ return {
 				vim.lsp.config(name, server)
 				vim.lsp.enable(name)
 			end
+
+			-- LSP
+			local builtin = require("telescope.builtin")
+			vim.keymap.set("n", "gi", builtin.lsp_implementations, { desc = "Telescope lsp implementations" })
+			vim.keymap.set("n", "gt", builtin.lsp_type_definitions, { desc = "Telescope lsp type definitions" })
+			vim.keymap.set("n", "gr", builtin.lsp_references, { desc = "Telescope lsp references" })
+			vim.keymap.set("n", "gd", builtin.lsp_definitions, { desc = "Telescope lsp definitions" })
+			vim.keymap.set("n", "gw", builtin.diagnostics, { desc = "Telescope lsp diagnostics" })
 		end,
 	},
 }

@@ -1,5 +1,6 @@
 return {
 	"nvim-telescope/telescope.nvim",
+	-- lazy = false,
 	version = "*",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
@@ -39,10 +40,14 @@ return {
 		})
 
 		local builtin = require("telescope.builtin")
+		-- 搜索文件
 		vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
-		vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
-		vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
-		vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
-		vim.keymap.set("n", "<leader>fc", builtin.colorscheme, { desc = "Telescope find colorscheme" })
+		-- 搜索 Buffer
+		vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope find buffers" })
+
+		-- 全局搜索文本
+		vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "Telescope global live grep" })
+		-- 当前 Buffer 搜索文本
+		vim.keymap.set("n", "<leader>sc", builtin.current_buffer_fuzzy_find, { desc = "Telescope local live grep" })
 	end,
 }

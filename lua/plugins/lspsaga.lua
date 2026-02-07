@@ -1,7 +1,7 @@
 return {
 	{
 		"nvimdev/lspsaga.nvim",
-		enabled = true,
+		enabled = false,
 		event = "VeryLazy",
 		keys = {
 			{ "K", "<cmd>Lspsaga hover_doc<cr>", desc = "Lspsaga hover" },

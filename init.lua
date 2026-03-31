@@ -1,4 +1,39 @@
+----------------------------------------------------------------------------
+--                              基本 配置
+----------------------------------------------------------------------------
 require("config.options")
+require("config.keymaps")
 
--- do :Lazy restore, to update all your plugins to the version from the lockfile.
-require("config.lazy")
+----------------------------------------------------------------------------
+--                              插件 配置
+----------------------------------------------------------------------------
+-- 自动加载 plugins 目录下的所有 lua 文件
+----------------------------------------------------------------------------
+local plugins_dir = vim.fn.stdpath("config") .. "/lua/plugins"
+local plugin_files = vim.split(vim.fn.glob(plugins_dir .. "/*.lua"), "\n")
+for _, file in ipairs(plugin_files) do
+	if file ~= "" then
+		local plugin_name = vim.fn.fnamemodify(file, ":t:r")
+		require("plugins." .. plugin_name)
+	end
+end
+
+----------------------------------------------------------------------------
+--                              LSP 配置
+----------------------------------------------------------------------------
+-- 使用 nvim-lspconfig 配置 lsp
+-- automatically finds them and merges them with any local lsp/*.lua
+----------------------------------------------------------------------------
+local servers = { "lua_ls", "clangd", "basedpyright" }
+for _, lsp in ipairs(servers) do
+	vim.lsp.enable(lsp)
+end
+-- 先取消默认LSP keymap
+vim.keymap.del("n", "gra")
+vim.keymap.del("n", "gri")
+vim.keymap.del("n", "grn")
+vim.keymap.del("n", "grr")
+vim.keymap.del("n", "grt")
+
+-- vim.keymap.set({"n", "x"}, "<leader>rn", vim.lsp.buf.rename)
+

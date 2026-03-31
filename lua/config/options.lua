@@ -4,6 +4,9 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- Tab
 vim.opt.tabstop = 4 -- number of visual spaces per TAB
 vim.opt.softtabstop = 4 -- number of spacesin tab when editing
@@ -52,3 +55,4 @@ vim.opt.signcolumn = "yes"
 
 -- 全局圆角边框
 vim.o.winborder = "rounded"
+

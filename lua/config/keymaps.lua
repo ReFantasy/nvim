@@ -16,3 +16,4 @@ vim.keymap.set("n", "\\", "<cmd>split<CR>")
 -- vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- vim.keymap.set("v", "H", "<gv", opts)
 -- vim.keymap.set("v", "L", ">gv", opts)
+

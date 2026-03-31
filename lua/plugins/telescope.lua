@@ -1,14 +1,8 @@
-return {
-	"nvim-telescope/telescope.nvim",
-	-- lazy = false,
-	version = "*",
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-		-- optional but recommended
-		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-	},
-	config = function()
-		require("telescope").setup({
+vim.pack.add({
+	{ src = "https://github.com/nvim-telescope/telescope.nvim" },
+})
+
+require("telescope").setup({
 			defaults = {
 				-- Default configuration for telescope goes here:
 				-- config_key = value,
@@ -49,5 +43,6 @@ return {
 		vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "Telescope global live grep" })
 		-- 当前 Buffer 搜索文本
 		vim.keymap.set("n", "<leader>sc", builtin.current_buffer_fuzzy_find, { desc = "Telescope local live grep" })
-	end,
-}
+
+
+        vim.keymap.set("n", "gd", builtin.lsp_definitions, { desc = "" })

@@ -18,3 +18,29 @@ vim.pack.add({
 	{ src = "https://github.com/folke/lazydev.nvim" },
 })
 
+vim.pack.add({
+	{ src = "https://github.com/folke/flash.nvim" },
+})
+vim.keymap.set({ "n", "x", "o" }, "s", function()
+	require("flash").jump()
+end, { desc = "Flash" })
+
+vim.pack.add({
+	{ src = "https://github.com/kdheepak/lazygit.nvim" },
+})
+vim.keymap.set({ "n" }, "<leader>lg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
+
+vim.pack.add({
+	{ src = "https://github.com/folke/which-key.nvim" },
+})
+
+vim.pack.add({
+	{ src = "https://github.com/folke/noice.nvim" },
+})
+
+vim.pack.add({
+	{ src = "https://github.com/windwp/nvim-autopairs" },
+})
+require("nvim-autopairs").setup({
+	enable_check_bracket_line = false,
+})

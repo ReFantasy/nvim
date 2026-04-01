@@ -14,9 +14,9 @@ vim.pack.add({
 	{ src = "https://github.com/christoomey/vim-tmux-navigator" },
 })
 
-vim.pack.add({
-	{ src = "https://github.com/folke/lazydev.nvim" },
-})
+-- vim.pack.add({
+-- 	{ src = "https://github.com/folke/lazydev.nvim" },
+-- })
 
 vim.pack.add({
 	{ src = "https://github.com/folke/flash.nvim" },
@@ -34,9 +34,9 @@ vim.pack.add({
 	{ src = "https://github.com/folke/which-key.nvim" },
 })
 
-vim.pack.add({
-	{ src = "https://github.com/folke/noice.nvim" },
-})
+-- vim.pack.add({
+-- 	{ src = "https://github.com/folke/noice.nvim" },
+-- })
 
 vim.pack.add({
 	{ src = "https://github.com/windwp/nvim-autopairs" },

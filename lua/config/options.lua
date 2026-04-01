@@ -56,3 +56,7 @@ vim.opt.signcolumn = "yes"
 -- 全局圆角边框
 vim.o.winborder = "rounded"
 
+-- 设置垂直分屏在右侧打开
+vim.opt.splitright = true
+-- 可选：同时设置水平分屏在下方打开
+vim.opt.splitbelow = true

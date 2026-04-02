@@ -21,3 +21,8 @@ vim.keymap.set("n", "\\", "<cmd>split<CR>")
 vim.keymap.set("n", "<leader>th", function()
 	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 end)
+
+-- 显示 LSP 诊断信息
+vim.keymap.set("n", "gw", function()
+	vim.diagnostic.open_float()
+end, { desc = "Lsp diagnostics" })

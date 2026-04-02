@@ -53,4 +53,4 @@ vim.keymap.set("n", "gi", builtin.lsp_implementations, { desc = "Telescope lsp i
 vim.keymap.set("n", "gt", builtin.lsp_type_definitions, { desc = "Telescope lsp type definitions" })
 vim.keymap.set("n", "gr", builtin.lsp_references, { desc = "Telescope lsp references" })
 vim.keymap.set("n", "gd", builtin.lsp_definitions, { desc = "Telescope lsp definitions" })
-vim.keymap.set("n", "gw", builtin.diagnostics, { desc = "Telescope lsp diagnostics" })
+vim.keymap.set("n", "<leader>gw", builtin.diagnostics, { desc = "Telescope lsp diagnostics" })

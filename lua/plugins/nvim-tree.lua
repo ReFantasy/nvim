@@ -37,33 +37,33 @@ require("neo-tree").setup({
 	close_if_last_window = true,
 	popup_border_style = "rounded",
 	enable_git_status = true,
-	enable_diagnostics = true,
+	enable_diagnostics = false,
 	open_files_do_not_replace_types = { "terminal", "trouble", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
 
-	-- default_component_configs = {
-	--     indent_size = 2,
-	--     padding = 1,
-	--     -- indent guides
-	--     with_markers = true,
-	--     indent_marker = "│",
-	--     last_indent_marker = "└",
-	--     highlight = "NeoTreeIndentMarker",
-	--     -- expander config, needed for nesting files
-	--     with_expanders = nil, -- if nil and file nesting is enabled, will enable expanders
-	--     expander_collapsed = "",
-	--     expander_expanded = "",
-	--     expander_highlight = "NeoTreeExpander",
-	--     modified = {
-	--         symbol = "[+]",
-	--         highlight = "NeoTreeModified",
-	--     },
-	--     git_status = {
-	--         enabled = false,
-	--     },
-	-- },
+	default_component_configs = {
+		--     indent_size = 2,
+		--     padding = 1,
+		--     -- indent guides
+		--     with_markers = true,
+		--     indent_marker = "│",
+		--     last_indent_marker = "└",
+		--     highlight = "NeoTreeIndentMarker",
+		--     -- expander config, needed for nesting files
+		--     with_expanders = nil, -- if nil and file nesting is enabled, will enable expanders
+		--     expander_collapsed = "",
+		--     expander_expanded = "",
+		--     expander_highlight = "NeoTreeExpander",
+		--     modified = {
+		--         symbol = "[+]",
+		--         highlight = "NeoTreeModified",
+		--     },
+		git_status = {
+			enabled = false,
+		},
+	},
 	window = {
 		position = "left",
-		width = 35,
+		width = 32,
 		mapping_options = {
 			noremap = true,
 			nowait = true,

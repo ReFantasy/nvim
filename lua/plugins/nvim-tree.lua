@@ -53,10 +53,10 @@ require("neo-tree").setup({
 		--     expander_collapsed = "",
 		--     expander_expanded = "",
 		--     expander_highlight = "NeoTreeExpander",
-		--     modified = {
-		--         symbol = "[+]",
-		--         highlight = "NeoTreeModified",
-		--     },
+		modified = {
+			symbol = "[+]",
+			highlight = "NeoTreeModified",
+		},
 		git_status = {
 			enabled = false,
 		},

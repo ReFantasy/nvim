@@ -40,8 +40,11 @@ vim.pack.add({
 -- })
 
 vim.pack.add({
-	{ src = "https://github.com/windwp/nvim-autopairs" },
+	{ src = "https://github.com/nvim-mini/mini.nvim" },
 })
-require("nvim-autopairs").setup({
-	enable_check_bracket_line = false,
-})
+require("mini.pairs").setup()
+require("mini.cursorword").setup() -- 高亮显示光标位置的单词
+-- 设置非当前光标下的匹配单词：例如使用背景色，并移除下划线
+vim.api.nvim_set_hl(0, "MiniCursorword", { bg = "#3a3a3a", ctermbg = 240 })
+-- 设置光标下的当前单词：例如使用更醒目的背景色或加粗，同样移除下划线
+vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", { bg = "#5a5a5a", ctermbg = 242, bold = true })

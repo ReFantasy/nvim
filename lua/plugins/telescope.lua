@@ -37,12 +37,20 @@ local builtin = require("telescope.builtin")
 -- 搜索文件
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Telescope find files" })
 vim.keymap.set("n", "<leader>fo", builtin.oldfiles, { desc = "Lists previously open files" })
+
 -- 搜索 Buffer
 vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope find buffers" })
 
 -- 全局搜索文本
 vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "Telescope global live grep" })
+
 -- 当前 Buffer 搜索文本
 vim.keymap.set("n", "<leader>sc", builtin.current_buffer_fuzzy_find, { desc = "Telescope local live grep" })
 
-vim.keymap.set("n", "gd", builtin.lsp_definitions, { desc = "" })
+-- lsp keymap
+local builtin = require("telescope.builtin")
+vim.keymap.set("n", "gi", builtin.lsp_implementations, { desc = "Telescope lsp implementations" })
+vim.keymap.set("n", "gt", builtin.lsp_type_definitions, { desc = "Telescope lsp type definitions" })
+vim.keymap.set("n", "gr", builtin.lsp_references, { desc = "Telescope lsp references" })
+vim.keymap.set("n", "gd", builtin.lsp_definitions, { desc = "Telescope lsp definitions" })
+vim.keymap.set("n", "gw", builtin.diagnostics, { desc = "Telescope lsp diagnostics" })

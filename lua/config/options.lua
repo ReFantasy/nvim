@@ -35,9 +35,7 @@ vim.opt.mouse:append("a")
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.schedule(function()
-	vim.opt.clipboard:append("unnamedplus")
-end)
+vim.opt.clipboard:append("unnamedplus")
 
 -- -- 默认新创建窗口在右和下位置
 -- vim.opt.splitbelow = true -- open new vertical split bottom

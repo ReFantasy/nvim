@@ -17,10 +17,10 @@ vim.keymap.set("n", "\\", "<cmd>split<CR>")
 -- vim.keymap.set("v", "H", "<gv", opts)
 -- vim.keymap.set("v", "L", ">gv", opts)
 
--- 切换虚拟文本显示
-vim.keymap.set("n", "<leader>th", function()
-	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-end)
+-- 切换虚拟文本显示 see nvim-lspconfig.lua
+-- vim.keymap.set("n", "<leader>th", function()
+-- 	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+-- end)
 
 -- 显示 LSP 诊断信息
 vim.keymap.set("n", "gw", function()

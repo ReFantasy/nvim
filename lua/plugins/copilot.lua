@@ -10,6 +10,7 @@ require("CopilotChat").setup({
 	-- model = "gpt-5", -- AI model to use
 	-- model = "gpt-5.2-codex", -- AI model to use
 	-- model = "gpt-5.3-codex", -- AI model to use ':CopilotChatModels' for available models
+	model = "gemini-3.1-pro-preview",
 	language = "Chinese", -- "English", -- Default language to use for answers
 	window = {
 		width = 0.33,

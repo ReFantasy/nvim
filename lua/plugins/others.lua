@@ -34,6 +34,11 @@ vim.keymap.set({ "n" }, "<leader>lg", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
 vim.pack.add({
 	{ src = "https://github.com/folke/which-key.nvim" },
 })
+require("which-key").setup({
+	win = {
+		border = "rounded", -- none, single, double, shadow
+	},
+})
 
 vim.pack.add({
 	{ src = "https://github.com/akinsho/toggleterm.nvim" },

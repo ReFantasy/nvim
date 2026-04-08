@@ -58,3 +58,9 @@ vim.o.winborder = "rounded"
 vim.opt.splitright = true
 -- 可选：同时设置水平分屏在下方打开
 vim.opt.splitbelow = true
+
+-- 设置空白行不显示波浪线
+-- 方法1：仅设置 eob 字符
+vim.opt.fillchars = { eob = " " }
+-- 方法2：同时设置多个 fillchars 选项
+-- vim.opt.fillchars = "eob: ,fold: ,vert:│"

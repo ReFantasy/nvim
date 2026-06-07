@@ -28,7 +28,7 @@ vim.keymap.del("n", "grn")
 vim.keymap.del("n", "grr")
 vim.keymap.del("n", "grt")
 -- 使用 nvim-lspconfig 配置 lsp
-local servers = { "lua_ls", "clangd", "basedpyright" }
+local servers = { "lua_ls", "clangd", "basedpyright", "asm_lsp" }
 for _, lsp in ipairs(servers) do
 	vim.lsp.enable(lsp)
 end

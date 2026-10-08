@@ -1,4 +1,5 @@
 vim.pack.add({
+        "https://github.com/saghen/blink.lib",
 	{ src = "https://github.com/saghen/blink.cmp" },
 	-- 依赖项 (dependencies)
 	"https://github.com/rafamadriz/friendly-snippets",
